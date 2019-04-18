@@ -1,5 +1,6 @@
 import urllib.request
 import json
+import modules.tree
 
 
 class Bank:
@@ -7,10 +8,10 @@ class Bank:
     Class for representation bank instance
     """
     def __init__(self):
-        self._id_org = None
-        self._title = None
-        self._programs = None
-        self._info = None
+        self.id_org = None
+        self.title = None
+        self.programs = None
+        self.info = None
 
     def __str__(self):
         pass
@@ -22,10 +23,10 @@ class Bank:
             print(data, file=ff)
         with open('data.json', 'r') as ff:
             data = json.load(ff)
-        self._info = data
+        self.info = data
 
     def update_instance(self):
-        banks = self._info['banks']
+        banks = self.info['banks']
         print(banks)
 
 
