@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f2ac463-fead-4276-9f57-da3be6d79026" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/take_data_about_deposits.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/bank/bank.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/bank/bank.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/bank/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/bank/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/bank/bank.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/bank/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/modules/bank/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/tree/tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/tree/tree.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,28 +16,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/tree/tree.py">
+        <entry file="file://$PROJECT_DIR$/modules/bank/one_bank.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/tree/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="200">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/modules/insurance/insurance.py">
+        <entry file="file://$PROJECT_DIR$/modules/bank/banks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="785">
+              <caret line="42" column="24" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/bank/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="23" selection-start-column="23" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo_bank.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -53,10 +66,15 @@
         <option value="$PROJECT_DIR$/examples/newfx.py" />
         <option value="$PROJECT_DIR$/examples/take_data_about_deposits.py" />
         <option value="$PROJECT_DIR$/modules/tree/__init__.py" />
-        <option value="$PROJECT_DIR$/modules/bank/bank.py" />
-        <option value="$PROJECT_DIR$/modules/tree/tree.py" />
         <option value="$PROJECT_DIR$/modules/insurance/__init__.py" />
         <option value="$PROJECT_DIR$/modules/insurance/insurance.py" />
+        <option value="$PROJECT_DIR$/modules/tree/tree.py" />
+        <option value="$PROJECT_DIR$/modules/bank/bank.py" />
+        <option value="$PROJECT_DIR$/modules/bank/demo.py" />
+        <option value="$PROJECT_DIR$/modules/bank/__init__.py" />
+        <option value="$PROJECT_DIR$/demo_bank.py" />
+        <option value="$PROJECT_DIR$/modules/bank/one_bank.py" />
+        <option value="$PROJECT_DIR$/modules/bank/banks.py" />
       </list>
     </option>
   </component>
@@ -170,12 +188,12 @@
       <workItem from="1554301924071" duration="6360000" />
       <workItem from="1554363205108" duration="58000" />
       <workItem from="1555350385764" duration="3420000" />
-      <workItem from="1555595046276" duration="2199000" />
+      <workItem from="1555595046276" duration="3946000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17468000" />
+    <option name="totallyTimeSpent" value="19215000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="26" width="1920" height="1054" extended-state="6" />
@@ -269,17 +287,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/bank/bank.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/tree/tree.py">
+    <entry file="file://$PROJECT_DIR$/modules/insurance/insurance.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="3" selection-start-line="3" selection-end-line="3" />
@@ -293,10 +301,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/insurance/insurance.py">
+    <entry file="file://$PROJECT_DIR$/modules/bank/bank.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="100">
+          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/tree/tree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/bank/demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="11" selection-start-column="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo_bank.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/bank/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/bank/one_bank.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/bank/banks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="785">
+          <caret line="42" column="24" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
