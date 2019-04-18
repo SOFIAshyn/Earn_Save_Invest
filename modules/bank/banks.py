@@ -58,8 +58,7 @@ class Bank:
         self.rating = index
 
     def __repr__(self):
-        return 'Bank < {}, {} >'.format(self.title,
-                                            self.rating)
+        return 'Bank < {}, {} >'.format(self.title, self.rating)
 
 
 class Program:
@@ -86,4 +85,3 @@ class Program:
 
             for el in rates[each]['diapasons']:
                 current.append([el['diapason'], el['rates']])
-
