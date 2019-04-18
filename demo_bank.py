@@ -2,4 +2,5 @@ from modules.bank import *
 
 b = BankType()
 b.update_information()
-b.update_instance()
+a = b.update_instance()
+print(sorted(a, key=lambda x:float(x.raiting)))
