@@ -17,9 +17,9 @@ class BankType:
         """
         url = 'https://resources.finance.ua/ua/deposit/program?type=nat'
         data = urllib.request.urlopen(url).read().decode()
-        with open('data.json', 'w', encoding='utf-8') as ff:
+        with open('modules/bank/data.json', 'w', encoding='utf-8') as ff:
             print(data, file=ff)
-        with open('data.json', 'r') as ff:
+        with open('modules/bank/data.json', 'r') as ff:
             data = json.load(ff)
         self.info = data
         self.conditions = data['conditions']
@@ -55,11 +55,11 @@ class Bank:
         self.title = title
         self.link = link
         self.programs = programs
-        self.raiting = index
+        self.rating = index
 
     def __repr__(self):
         return 'Bank < {}, {} >'.format(self.title,
-                                            self.raiting)
+                                            self.rating)
 
 
 class Program:
