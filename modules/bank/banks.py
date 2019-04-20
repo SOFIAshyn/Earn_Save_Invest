@@ -49,6 +49,12 @@ class BankType:
                                each['link'], each['currency_diapasons_rates']))
         return res
 
+    def banks_processing(self):
+        self.update_information()
+        res = sorted(self.update_instance(),
+                     key=lambda x: float(x.rating))[-1:-14:-1]
+        return res
+
 
 class Bank:
     def __init__(self, title, link, programs, index):
