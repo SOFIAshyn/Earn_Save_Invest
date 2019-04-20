@@ -264,6 +264,7 @@ class Stocker():
                             future_increase['estimate'], self.symbol)
         return future
 
+        # Plot in matplot lib with errorbar
         # self.reset_plot()
         #
         # # Set up plot

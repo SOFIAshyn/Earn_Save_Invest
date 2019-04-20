@@ -1,9 +1,3 @@
-# # import plotly
-# import cufflinks as cf
-#
-# cf.datagen.lines(5).resample('M').iplot(kind='bar', xTitle='Dates',
-#                                         yTitle='Return',
-#                                         title='Cufflinks - Bar Chart')
 import matplotlib.pyplot as plt
 import matplotlib.mlab as mlab
 import numpy as np

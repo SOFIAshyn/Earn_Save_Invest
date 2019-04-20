@@ -1,1 +1,2 @@
-from modules.data_collecting import *
+from modules.data_collecting import Person, Family
+
