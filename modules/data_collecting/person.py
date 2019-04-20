@@ -116,27 +116,37 @@ class Person:
 class Family:
     def __init__(self,
                  members=[],
-                 benefits=0,
+                 benefits=0.0,
                  out_food=None,
                  out_utility_bills=None,
                  out_household=None,
                  out_transport=None,
                  out_clothes=None,
+                 out_trips=None,
                  out_unknown=None,
                  saving=None):
         self.members = members
-        self.benefits = benefits
-        self.out_food = out_food
-        self.out_utility_bills = out_utility_bills
-        self.out_household = out_household
-        self.out_transport = out_transport
-        self.out_clothes = out_clothes
-        self.out_unknown = out_unknown
-        self.saving = saving
+        self.__benefits = benefits
+        self.__out_food = out_food
+        self.__out_utility_bills = out_utility_bills
+        self.__out_household = out_household
+        self.__out_transport = out_transport
+        self.__out_clothes = out_clothes
+        self.__out_trips = out_trips
+        self.__out_unknown = out_unknown
+        self.__saving = saving
+        self.family_money_box = {}
 
     # TODO: questions as in person
 
     # TODO: calculations according to data of each person in family
+    def calculate_family_outcome(self):
+        '''
+        Check each person in family and add all info to family info
+
+        :return: None
+        '''
+        pass
 
     def __repr__(self):
         return ''.join(self.members)

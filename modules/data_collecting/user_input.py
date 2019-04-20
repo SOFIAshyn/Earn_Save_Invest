@@ -15,7 +15,7 @@ def questions_answers():
         person = Person()
         family_members.append(person)
 
-    family = Family(tuple(family_members))
+    family = Family(family_members)
 
 
 def num_fam_members():
