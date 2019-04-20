@@ -52,8 +52,10 @@ class BankType:
     def banks_processing(self):
         self.update_information()
         res = sorted(self.update_instance(),
-                     key=lambda x: float(x.rating))[-1:-14:-1]
-        return res
+                     key=lambda x: float(x.rating))[::-1]
+        # for b in res:
+        #     print(b)
+        # return res
 
 
 class Bank:
@@ -62,23 +64,37 @@ class Bank:
         self.link = link
         self.programs = programs
         self.rating = index
+        self.coeffs = {
+            'rating': .5,
+            'programs': .1,
+            'rates': .4
+            }
+        self.index = 0
+        self.update()
 
     def __repr__(self):
-        return 'Bank < {}, {} >'.format(self.title, self.rating)
+        return 'Bank: < {}, rating: {},  Programs: {}>'.format(self.title,
+                                                               self.rating,
+                                                               self.programs)
+
+    def update(self):
+        self.index += len(self.programs) * self.coeffs['programs']
 
 
 class Program:
-    def __init__(self, id_condition, title, link, rates):
-        self.id_condition = id_condition
+    def __init__(self, condition, title, link, rates):
+        self.condition = condition
         self.title = title
         self.link = link
         self.EUR_rates = []
         self.UAH_rates = []
         self.USD_rates = []
-        self.transform_rates(rates)
+        self.rates = self.transform_rates(rates)
+        # print(self.UAH_rates)
+        self.find_minimum(self.UAH_rates)
 
     def __repr__(self):
-        pass
+        return '{}'.format(self.title)
 
     def transform_rates(self, rates):
         for each in rates:
@@ -88,6 +104,26 @@ class Program:
                 current = self.UAH_rates
             else:
                 current = self.USD_rates
-
             for el in rates[each]['diapasons']:
                 current.append([el['diapason'], el['rates']])
+                if current[-1] is []:
+                    current.pop(-1)
+        return current
+
+    # @staticmethod
+    # def percentage(summ, percent):
+    #     return float(summ) * float(percent) / 100
+
+    def find_minimum(self, currency):
+        year = 12
+        res = []
+        for each in currency:
+            min_invest = float(each[0])
+            for months in each[1]:
+                num_of_months = year / float(months)
+                t = float(each[1][months])/100/float(num_of_months)
+                a = round(min_invest * ((1 + t)**float(num_of_months)), 2)
+
+                res.append([min_invest, months, a])
+
+        return res
