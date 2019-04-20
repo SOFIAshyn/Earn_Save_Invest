@@ -2,21 +2,25 @@ import pandas as pd
 import numpy as np
 import fbprophet
 
-# matplotlib pyplot for plotting
 import matplotlib.pyplot as plt
-
 import matplotlib
 import datetime as dt
 import pandas_datareader.data as web
 from modules.plots.main_plot import company_middle_plot
 
 
-# Class for analyzing and (attempting) to predict future prices
-# Contains a number of visualizations and analysis methods
 class Stocker():
+    '''
+    Class for analyzing and (attempting) to predict future prices
+    Contains a number of visualizations methods
+    '''
 
-    # Initialization requires a ticker symbol
-    def __init__(self, ticker, exchange='WIKI'):
+    def __init__(self, ticker):
+        '''
+        Initialization requires a ticker symbol
+
+        :param ticker: str
+        '''
 
         # Enforce capitalization
         ticker = ticker.upper()
@@ -25,18 +29,13 @@ class Stocker():
         self.symbol = ticker
         self.df = None
 
-        # Use Personal Api Key
-        # quandl.ApiConfig.api_key = 'YourKeyHere'
-
         # Retrieval the financial data
         try:
-            # stock = quandl.get('%s/%s' % (exchange, ticker))
-            # print('here:', stock[:6])
             start = dt.datetime(1989, 1, 29)
             end = dt.datetime.today()
 
             self.df = web.DataReader(self.symbol, 'yahoo', start, end)
-            print('hereeeee', self.df.head())
+            # print('hereeeee', self.df.head())
 
 
         except Exception as e:
@@ -49,10 +48,6 @@ class Stocker():
 
         # Columns required for prophet
         self.df['ds'] = self.df['Date']
-
-        # if ('Adj. Close' not in stock.columns):
-        #     stock['Adj. Close'] = stock['Close']
-        #     stock['Adj. Open'] = stock['Open']
 
         self.df['y'] = self.df['Close']
         self.df['Daily Change'] = self.df['Close'] - self.df['Open']
@@ -101,12 +96,11 @@ class Stocker():
                                                                    self.min_date.date(),
                                                                    self.max_date.date()))
 
-    """
-    Make sure start and end dates are in the range and can be
-    converted to pandas datetimes. Returns dates in the correct format
-    """
-
     def handle_dates(self, start_date, end_date):
+        """
+        Make sure start and end dates are in the range and can be
+        converted to pandas datetimes. Returns dates in the correct format
+        """
 
         # Default start and end date are the beginning and end of data
         if start_date is None:
@@ -157,6 +151,11 @@ class Stocker():
     # Not sure if this should be a static method
     @staticmethod
     def reset_plot():
+        '''
+        Reset the plotting parameters to clear style formatting
+        Not sure if this should be a static method
+        :return: None
+        '''
 
         # Restore default parameters
         matplotlib.rcParams.update(matplotlib.rcParamsDefault)
@@ -169,8 +168,12 @@ class Stocker():
         matplotlib.rcParams['axes.titlesize'] = 14
         matplotlib.rcParams['text.color'] = 'k'
 
-    # Remove weekends from a dataframe
     def remove_weekends(self, dataframe):
+        '''
+        Remove weekends from a dataframe
+        :param dataframe: pandas DataFrame
+        :return: pandas DataFrame
+        '''
 
         # Reset index to use ix
         dataframe = dataframe.reset_index(drop=True)
@@ -187,9 +190,11 @@ class Stocker():
 
         return dataframe
 
-    # Create a prophet model without training
     def create_model(self):
-
+        '''
+        Create a prophet model without training
+        :return: Prophet
+        '''
         # Make the model
         model = fbprophet.Prophet(daily_seasonality=self.daily_seasonality,
                                   weekly_seasonality=self.weekly_seasonality,
@@ -203,9 +208,12 @@ class Stocker():
 
         return model
 
-    # Predict the future price for a given range of days
     def predict_future(self, days=70):
-
+        '''
+        Predict the future price for a given range of days
+        :param days: int
+        :return: pandas DataFrame
+        '''
         # Use past self.training_years years for training
         train = self.stock[self.stock['Date'] > (
                 max(self.stock['Date']) - pd.DateOffset(
@@ -254,41 +262,37 @@ class Stocker():
 
         company_middle_plot(future_increase['Date'],
                             future_increase['estimate'], self.symbol)
+        return future
 
-
-        self.reset_plot()
-
-        # Set up plot
-        plt.style.use('fivethirtyeight')
-        matplotlib.rcParams['axes.labelsize'] = 10
-        matplotlib.rcParams['xtick.labelsize'] = 8
-        matplotlib.rcParams['ytick.labelsize'] = 8
-        matplotlib.rcParams['axes.titlesize'] = 12
-
-        # Plot the predictions and indicate if increase or decrease
-        fig, ax = plt.subplots(1, 1, figsize=(8, 6))
-
-        # Plot the estimates
-        ax.plot(future_increase['Date'], future_increase['estimate'], 'g^',
-                ms=12, label='Pred. Increase')
-        ax.plot(future_decrease['Date'], future_decrease['estimate'], 'rv',
-                ms=12, label='Pred. Decrease')
-
-        # Plot errorbars
-        ax.errorbar(future['Date'].dt.to_pydatetime(), future['estimate'],
-                    yerr=future['upper'] - future['lower'],
-                    capthick=1.4, color='k', linewidth=2,
-                    ecolor='darkblue', capsize=4, elinewidth=1,
-                    label='Pred with Range')
-
-        # Plot formatting
-        plt.legend(loc=2, prop={'size': 10});
-        plt.xticks(rotation='45')
-        plt.ylabel('Predicted Stock Price (US $)');
-        plt.xlabel('Date');
-        plt.title('Predictions for %s' % self.symbol);
-        plt.show()
-
-
-s = Stocker('MSFT')
-s.predict_future(365)
+        # self.reset_plot()
+        #
+        # # Set up plot
+        # plt.style.use('fivethirtyeight')
+        # matplotlib.rcParams['axes.labelsize'] = 10
+        # matplotlib.rcParams['xtick.labelsize'] = 8
+        # matplotlib.rcParams['ytick.labelsize'] = 8
+        # matplotlib.rcParams['axes.titlesize'] = 12
+        #
+        # # Plot the predictions and indicate if increase or decrease
+        # fig, ax = plt.subplots(1, 1, figsize=(8, 6))
+        #
+        # # Plot the estimates
+        # ax.plot(future_increase['Date'], future_increase['estimate'], 'g^',
+        #         ms=12, label='Pred. Increase')
+        # ax.plot(future_decrease['Date'], future_decrease['estimate'], 'rv',
+        #         ms=12, label='Pred. Decrease')
+        #
+        # # Plot errorbars
+        # ax.errorbar(future['Date'].dt.to_pydatetime(), future['estimate'],
+        #             yerr=future['upper'] - future['lower'],
+        #             capthick=1.4, color='k', linewidth=2,
+        #             ecolor='darkblue', capsize=4, elinewidth=1,
+        #             label='Pred with Range')
+        #
+        # # Plot formatting
+        # plt.legend(loc=2, prop={'size': 10})
+        # plt.xticks(rotation='45')
+        # plt.ylabel('Predicted Stock Price (US $)')
+        # plt.xlabel('Date')
+        # plt.title('Predictions for %s' % self.symbol)
+        # plt.show()
