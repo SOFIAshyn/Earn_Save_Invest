@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f2ac463-fead-4276-9f57-da3be6d79026" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/profit_analysis/stock_analysis.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/stocker/compare_stock_markets.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/data_collecting/example_of_getting_information.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/data_collecting/person.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/data_collecting/person.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/data_collecting/user_input.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/data_collecting/user_input.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/profit_analysis/profit_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/profit_analysis/profit_analysis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/stocker/stocker.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/stocker/stocker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/tree/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/tree/tree.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/exceptions/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/exceptions/exceptions.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,13 +18,25 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/modules/bank/banks.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="258">
-                  <caret line="84" column="29" lean-forward="true" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
+                <state relative-caret-position="1245">
+                  <caret line="84" column="29" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
                   <folding>
                     <element signature="e#0#21#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/modules/stocker/stocker.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="202">
+                  <caret line="197" column="24" lean-forward="true" selection-start-line="197" selection-start-column="24" selection-end-line="197" selection-end-column="24" />
+                  <folding>
+                    <element signature="e#0#19#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -43,11 +51,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules/data_collecting/user_input.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="17" column="35" lean-forward="true" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+                <state relative-caret-position="213">
+                  <caret line="40" column="8" lean-forward="true" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
                   <folding>
                     <element signature="e#0#50#0" expanded="true" />
                   </folding>
@@ -58,8 +66,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/modules/profit_analysis/profit_analysis.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-177">
-                  <caret line="73" column="32" lean-forward="true" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
+                <state relative-caret-position="1095">
+                  <caret line="73" column="32" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
                 </state>
               </provider>
             </entry>
@@ -85,39 +93,68 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules/data_collecting/person.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="830">
-                  <caret line="144" column="31" lean-forward="true" selection-start-line="144" selection-start-column="31" selection-end-line="144" selection-end-column="31" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/modules/plots/main_plot.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+                <state relative-caret-position="60">
+                  <caret line="159" lean-forward="true" selection-start-line="159" selection-end-line="159" />
+                  <folding>
+                    <element signature="e#102#4454#0" />
+                    <element signature="e#97#113#1" />
+                    <element signature="e#1514#1531#0" />
+                    <element signature="e#1574#1728#0" />
+                    <element signature="e#1701#1724#0" />
+                    <element signature="e#1860#1880#0" />
+                    <element signature="e#1225#1414#0" />
+                    <element signature="e#2081#2101#0" />
+                    <element signature="e#2159#2283#0" />
+                    <element signature="e#2335#2361#0" />
+                    <element signature="e#1629#1744#0" />
+                    <element signature="e#2614#2641#0" />
+                    <element signature="e#1911#2021#0" />
+                    <element signature="e#2874#2894#0" />
+                    <element signature="e#2142#2245#0" />
+                    <element signature="e#2393#3540#0" />
+                    <element signature="e#3573#3981#0" />
+                    <element signature="e#3998#11369#0" />
+                    <element signature="e#4432#5049#0" />
+                    <element signature="e#4949#4964#0" />
+                    <element signature="e#5027#5134#0" />
+                    <element signature="e#5537#5568#0" />
+                    <element signature="e#5642#5761#0" />
+                    <element signature="e#5811#5838#0" />
+                    <element signature="e#5962#6090#0" />
+                    <element signature="e#6116#6143#0" />
+                    <element signature="e#6263#6391#0" />
+                    <element signature="e#6467#6494#0" />
+                    <element signature="e#6596#6725#0" />
+                    <element signature="e#6381#6406#0" />
+                    <element signature="e#6512#6641#0" />
+                    <element signature="e#6632#6655#0" />
+                    <element signature="e#6759#6884#0" />
+                    <element signature="e#6880#6905#0" />
+                    <element signature="e#6994#7115#0" />
+                    <element signature="e#5533#5553#0" />
+                    <element signature="e#5615#5634#0" />
+                    <element signature="e#7721#9481#0" />
+                    <element signature="e#9018#9372#0" />
+                    <element signature="e#10033#10738#0" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/modules/plots/config.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret column="40" selection-start-column="40" selection-end-column="40" />
-                </state>
-              </provider>
+              <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/modules/exceptions/exceptions.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="75">
-                  <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+                <state relative-caret-position="180">
+                  <caret line="12" column="38" lean-forward="true" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
                 </state>
               </provider>
             </entry>
@@ -141,6 +178,11 @@
       <find>training_years</find>
       <find>make_future_dataframe</find>
       <find>changepoints</find>
+      <find>np</find>
+      <find>change</find>
+      <find>changepo</find>
+      <find>fbprophet</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -168,19 +210,21 @@
         <option value="$PROJECT_DIR$/demo_stocker.py" />
         <option value="$PROJECT_DIR$/demo_data_collecting.py" />
         <option value="$PROJECT_DIR$/modules/plots/main_plot.py" />
-        <option value="$PROJECT_DIR$/modules/exceptions/exceptions.py" />
-        <option value="$PROJECT_DIR$/modules/data_collecting/user_input.py" />
-        <option value="$PROJECT_DIR$/modules/data_collecting/person.py" />
         <option value="$PROJECT_DIR$/modules/profit_analysis/profit_analysis.py" />
         <option value="$PROJECT_DIR$/modules/stocker/compare_stock_markets.py" />
         <option value="$PROJECT_DIR$/modules/stocker/stocker.py" />
         <option value="$PROJECT_DIR$/modules/profit_analysis/stock_analysis.py" />
+        <option value="$PROJECT_DIR$/modules/exceptions/exceptions.py" />
+        <option value="$PROJECT_DIR$/modules/data_collecting/example_of_getting_information.txt" />
+        <option value="$PROJECT_DIR$/modules/data_collecting/user_input.py" />
+        <option value="$PROJECT_DIR$/modules/data_collecting/person.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="714" />
-    <option name="height" value="900" />
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="811" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -188,52 +232,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Earn_Save_Invest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Earn_Save_Invest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Earn_Save_Invest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Earn_Save_Invest" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Earn_Save_Invest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Earn_Save_Invest" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="bank" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Earn_Save_Invest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Earn_Save_Invest" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="data_analysis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Earn_Save_Invest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Earn_Save_Invest" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="profit_analysis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Earn_Save_Invest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Earn_Save_Invest" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="stocker" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Earn_Save_Invest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Earn_Save_Invest" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="UAH_course" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -273,18 +271,82 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Earn_Save_Invest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Earn_Save_Invest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Earn_Save_Invest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Earn_Save_Invest" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Earn_Save_Invest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Earn_Save_Invest" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="bank" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Earn_Save_Invest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Earn_Save_Invest" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="data_analysis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Earn_Save_Invest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Earn_Save_Invest" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="data_collecting" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Earn_Save_Invest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Earn_Save_Invest" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="exceptions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Earn_Save_Invest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Earn_Save_Invest" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="plots" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Earn_Save_Invest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Earn_Save_Invest" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="profit_analysis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Earn_Save_Invest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Earn_Save_Invest" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="stocker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Earn_Save_Invest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Earn_Save_Invest" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="UAH_course" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../jarvis" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.externalDependencies" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -303,7 +365,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.stocker">
+  <component name="RunManager" selected="Python.user_input">
     <configuration name="demo_stocker" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Earn_Save_Invest-1" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -318,6 +380,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo_stocker.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="exceptions" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Earn_Save_Invest-1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/modules/exceptions" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/modules/exceptions/exceptions.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -348,8 +432,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="user_input" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Earn_Save_Invest-1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/modules/data_collecting" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/modules/data_collecting/user_input.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.user_input" />
+        <item itemvalue="Python.exceptions" />
         <item itemvalue="Python.stocker" />
         <item itemvalue="Python.demo_stocker" />
       </list>
@@ -372,23 +480,24 @@
       <workItem from="1554363205108" duration="58000" />
       <workItem from="1555350385764" duration="3420000" />
       <workItem from="1555595046276" duration="15098000" />
-      <workItem from="1555749100704" duration="22980000" />
+      <workItem from="1555749100704" duration="23495000" />
+      <workItem from="1556833429429" duration="12102000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53347000" />
+    <option name="totallyTimeSpent" value="65964000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17453505" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17668097" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32891566" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -440,9 +549,22 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/modules/data_collecting/user_input.py</url>
+          <line>48</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Earn_Save_Invest$stocker.coverage" NAME="stocker Coverage Results" MODIFIED="1555768200926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/stocker" />
+    <SUITE FILE_PATH="coverage/Earn_Save_Invest$exceptions.coverage" NAME="exceptions Coverage Results" MODIFIED="1556906521082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/exceptions" />
     <SUITE FILE_PATH="coverage/Earn_Save_Invest$demo_stocker.coverage" NAME="demo_stocker Coverage Results" MODIFIED="1555751816092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Earn_Save_Invest$user_input.coverage" NAME="user_input Coverage Results" MODIFIED="1556915732692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/data_collecting" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/examples/scrapp/product_catalog/crawlers/crawlers/spiders/rozetka.py" />
@@ -470,13 +592,7 @@
     <entry file="file://$PROJECT_DIR$/examples/start.sh">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/insurance/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/insurance/__init__.py" />
     <entry file="file://$PROJECT_DIR$/examples/scrap_info.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -487,28 +603,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/insurance/insurance.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/tree/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/insurance/insurance.py" />
+    <entry file="file://$PROJECT_DIR$/modules/tree/__init__.py" />
     <entry file="file://$PROJECT_DIR$/modules/bank/bank.py" />
-    <entry file="file://$PROJECT_DIR$/modules/tree/tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/tree/tree.py" />
     <entry file="file://$PROJECT_DIR$/modules/bank/demo.py" />
     <entry file="file://$PROJECT_DIR$/modules/bank/one_bank.py" />
     <entry file="file://$PROJECT_DIR$/modules/bank/__init__.py">
@@ -540,69 +638,10 @@
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo_stocker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/demo_data_collecting.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/exceptions/exceptions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/plots/main_plot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/plots/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="40" selection-start-column="40" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/stocker/stocker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-280">
-          <caret line="264" column="21" lean-forward="true" selection-start-line="264" selection-start-column="21" selection-end-line="264" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/data_collecting/person.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="830">
-          <caret line="144" column="31" lean-forward="true" selection-start-line="144" selection-start-column="31" selection-end-line="144" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/stocker/compare_stock_markets.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/profit_analysis/stock_analysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="44" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -613,29 +652,133 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/data_collecting/user_input.py">
+    <entry file="file://$PROJECT_DIR$/modules/bank/banks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="35" lean-forward="true" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+        <state relative-caret-position="1245">
+          <caret line="84" column="29" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
           <folding>
-            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/stocker/compare_stock_markets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/profit_analysis/profit_analysis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-177">
-          <caret line="73" column="32" lean-forward="true" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
+        <state relative-caret-position="1095">
+          <caret line="73" column="32" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/bank/banks.py">
+    <entry file="file://$PROJECT_DIR$/modules/profit_analysis/stock_analysis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="84" column="29" lean-forward="true" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
+        <state relative-caret-position="30">
+          <caret line="2" column="44" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo_stocker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/stocker/stocker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="197" column="24" lean-forward="true" selection-start-line="197" selection-start-column="24" selection-end-line="197" selection-end-column="24" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/plots/config.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/plots/main_plot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/exceptions/exceptions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="38" lean-forward="true" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/data_collecting/example_of_getting_information.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/data_collecting/person.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="159" lean-forward="true" selection-start-line="159" selection-end-line="159" />
+          <folding>
+            <element signature="e#102#4454#0" />
+            <element signature="e#97#113#1" />
+            <element signature="e#1514#1531#0" />
+            <element signature="e#1574#1728#0" />
+            <element signature="e#1701#1724#0" />
+            <element signature="e#1860#1880#0" />
+            <element signature="e#1225#1414#0" />
+            <element signature="e#2081#2101#0" />
+            <element signature="e#2159#2283#0" />
+            <element signature="e#2335#2361#0" />
+            <element signature="e#1629#1744#0" />
+            <element signature="e#2614#2641#0" />
+            <element signature="e#1911#2021#0" />
+            <element signature="e#2874#2894#0" />
+            <element signature="e#2142#2245#0" />
+            <element signature="e#2393#3540#0" />
+            <element signature="e#3573#3981#0" />
+            <element signature="e#3998#11369#0" />
+            <element signature="e#4432#5049#0" />
+            <element signature="e#4949#4964#0" />
+            <element signature="e#5027#5134#0" />
+            <element signature="e#5537#5568#0" />
+            <element signature="e#5642#5761#0" />
+            <element signature="e#5811#5838#0" />
+            <element signature="e#5962#6090#0" />
+            <element signature="e#6116#6143#0" />
+            <element signature="e#6263#6391#0" />
+            <element signature="e#6467#6494#0" />
+            <element signature="e#6596#6725#0" />
+            <element signature="e#6381#6406#0" />
+            <element signature="e#6512#6641#0" />
+            <element signature="e#6632#6655#0" />
+            <element signature="e#6759#6884#0" />
+            <element signature="e#6880#6905#0" />
+            <element signature="e#6994#7115#0" />
+            <element signature="e#5533#5553#0" />
+            <element signature="e#5615#5634#0" />
+            <element signature="e#7721#9481#0" />
+            <element signature="e#9018#9372#0" />
+            <element signature="e#10033#10738#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/data_collecting/user_input.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="40" column="8" lean-forward="true" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>

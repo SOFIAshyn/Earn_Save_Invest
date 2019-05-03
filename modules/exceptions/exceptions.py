@@ -1,16 +1,21 @@
 class InvalidInput(Exception):
     def __init__(self):
-        self.message = ''
+        self.message_text = ''
 
     def message(self):
-        return self.message()
+        return self.message_text
 
 class IntInvalidInput(InvalidInput):
     def __init__(self):
         super(IntInvalidInput, self).__init__()
-        self.message = 'Будь ласка, введіть ціле значення.'
+        self.message_text = 'Будь ласка, введіть ціле значення.'
 
 class FloatInvalidInput(InvalidInput):
     def __init__(self):
         super(FloatInvalidInput, self).__init__()
-        self.message = 'Будь ласка, введіть числове значення.'
+        self.message_text = 'Будь ласка, введіть числове значення.'
+
+try:
+    a = int('d')
+except ValueError:
+    print(IntInvalidInput().message())

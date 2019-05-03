@@ -1,31 +1,54 @@
+'''
+
+Module to get information from user about family and each person.
+Collect all the data and return it.
+
+'''
 from modules.data_collecting import Person, Family
 from modules.exceptions.exceptions import IntInvalidInput
 
 
-def questions_answers():
-    num_fam_members = 0
+def family_questions_answers():
+    '''
+    Unite all the people to family
+    Return family
+
+    :return: Family
+    '''
+    num_fam_members = None
     while not num_fam_members:
         try:
-            num_fam_members = num_fam_members()
+            num_fam_members = fam_members()
         except ValueError:
             continue
 
     family_members = []
     for i in range(num_fam_members):
-        person = Person()
+        person = Person(i)
         family_members.append(person)
 
     family = Family(family_members)
 
+    return family
 
-def num_fam_members():
+
+def fam_members():
+    '''
+    Return number of family members
+
+    :return: int
+    '''
     try:
         num_fam_members = int(input("Скільки людей разом з вами веде "
                                     "бюджет:\n"
-                                    "(введіть число)\n0 - сам розпоряджаюсь "
-                                    "витратами, 1 - з однією людиною і т.д.)"))
-        return num_fam_members
-    except IntInvalidInput:
-        print(IntInvalidInput.message())
+                                    "(введіть число)\n1 - сам розпоряджаюсь "
+                                    "витратами, 2 - з однією людиною і "
+                                    "т.д.)"))
+        return int(num_fam_members)
+    except ValueError:
+        print(IntInvalidInput().message())
 
-# questions_answers()
+
+if __name__ == '__main__':
+    family = questions_answers()
+    print(family)
