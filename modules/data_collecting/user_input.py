@@ -50,5 +50,5 @@ def fam_members():
 
 
 if __name__ == '__main__':
-    family = questions_answers()
+    family = family_questions_answers()
     print(family)

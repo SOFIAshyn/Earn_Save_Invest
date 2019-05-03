@@ -13,7 +13,8 @@ class Person:
                  income=0.0,
                  extra_income=0.0,
                  hours_on_work=0,
-                 saving=0):
+                 saving=0,
+                 out_entertainment=0.0):
         '''
         Initialize all the attributes
         :param i: int
@@ -24,6 +25,7 @@ class Person:
         :param extra_income: float
         :param hours_on_work: int
         :param saving: int
+        :param out_entertainment: float
         '''
         self.number = i + 1
         self.__age = age
@@ -35,9 +37,11 @@ class Person:
         self.__extra_income = extra_income
         self.__hours_on_work = hours_on_work
         self.__saving = saving
+        self.__out_entertainment = out_entertainment
         self.money_box = {
             'Previous savings': saving,
         }
+        # get data from user
         self._get_person_data()
 
     @property
@@ -111,6 +115,17 @@ class Person:
         except ValueError:
             self.__saving = None
 
+    @property
+    def out_entertainment(self):
+        return self.__out_entertainment
+
+    @out_entertainment.setter
+    def out_entertainment(self, val):
+        try:
+            self.__out_entertainment = float(val)
+        except ValueError:
+            self.__out_entertainment = None
+
     def _get_person_data(self):
         '''
         Get and set data sbout user in correct type
@@ -142,6 +157,9 @@ class Person:
                     'Скільки годин на день працює член сім\'ї: ')
             self.saving = input('Скільки відсотків від доходу / додаткового '
                                 'доходу заощаджує член сім\'ї: ')
+        while not self.out_entertainment:
+            self.out_entertainment = input(
+                'Введіть суму річних витрат на розваги: ')
 
     def __str__(self):
         '''
@@ -149,8 +167,10 @@ class Person:
 
         :return: str
         '''
-        res = '{}{}: вік = {}; працевлаштування = {}'.format(
-            self.__class__.__name__, self.number, self.age, self.worked)
+        res = '{}{}: вік = {}; працевлаштування = {}; витрати на ' \
+              'розваги = {}'.format(
+            self.__class__.__name__, self.number, self.age, self.worked,
+            self.out_entertainment)
         if self.worked:
             res += '; прибуток = {}; додатковий прибуток = {}; ' \
                    'робочі години на день = {}; заощадження = {}%'.format(
@@ -174,6 +194,7 @@ class Family:
                  out_transport=None,
                  out_education=0.0,
                  out_clothes=None,
+                 out_entertainment=0.0,
                  out_trips=None,
                  out_unknown=None,
                  saving=0):
@@ -188,6 +209,7 @@ class Family:
         :param out_transport: None
         :param out_education: float
         :param out_clothes: None
+        :param entertainment: float
         :param out_trips: None
         :param out_unknown: None
         :param saving: int
@@ -201,6 +223,7 @@ class Family:
         self.__out_transport = out_transport
         self.__out_education = out_education
         self.__out_clothes = out_clothes
+        self.__out_entertainment = out_entertainment
         self.__out_trips = out_trips
         self.__out_unknown = out_unknown
         self.__saving = saving
@@ -292,6 +315,14 @@ class Family:
             self.__out_clothes = None
 
     @property
+    def out_entertainment(self):
+        return self.__out_entertainment
+
+    @out_entertainment.setter
+    def out_entertainment(self, val):
+        self.__out_entertainment = val
+
+    @property
     def out_trips(self):
         return self.__out_trips
 
@@ -335,7 +366,8 @@ class Family:
                                   'харчування: ')
         while not self.out_utility_bills:
             self.out_utility_bills = input(
-                'Введіть суму місячних комунальних витрат: ')
+                'Введіть суму місячних комунальних витрат та, за наявності, '
+                'оплату за оренду житла: ')
         while not self.out_household:
             self.out_household = input(
                 'Введіть суму місячних побутових витрат\n(засоби гігієни, '
@@ -354,8 +386,10 @@ class Family:
                 'Введіть суму річних витрат на подорожі: ')
         while not self.out_unknown:
             self.out_unknown = input(
-                'Введіть суму річних несподіваних витрат: ')
+                'Введіть суму місячниха несподіваних витрат: ')
+
         # TODO: get to understand if we need these variables
+
         general_outcome = self.out_utility_bills + self.out_food + \
                           self.out_household + self.out_clothes + \
                           self.out_transport
@@ -377,6 +411,7 @@ class Family:
                 self.benefits += person.extra_income
             if person.saving:
                 self.saving += person.saving
+            # TODO ENTERTINMENT
 
     def __str__(self):
         '''
@@ -391,8 +426,9 @@ class Family:
                'витрати = {};\nмісячні побутові витрати = {};\nмісячні ' \
                'транспортні витрати = {};\nмісячні витрат на освіту = {' \
                '};\nмісячні витрати на одяг та взуття = {};\nрічні витрати ' \
-               'на подорожі = {};\nрічні несподівані витрати = {}'.format(
+               'на подорожі = {};\nмісячні несподівані витрати = {};ґт' \
+               'місячні витрати на розваги = {}'.format(
             self.out_food, self.out_utility_bills, self.out_household,
             self.out_transport, self.out_education, self.out_clothes,
-            self.out_trips, self.out_unknown)
+            self.out_trips, self.out_unknown, self.out_entertainment)
         return res

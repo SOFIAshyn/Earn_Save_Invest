@@ -15,7 +15,8 @@ class FloatInvalidInput(InvalidInput):
         super(FloatInvalidInput, self).__init__()
         self.message_text = 'Будь ласка, введіть числове значення.'
 
-try:
-    a = int('d')
-except ValueError:
-    print(IntInvalidInput().message())
+if __name__ == '__main__':
+    try:
+        a = int('d')
+    except ValueError:
+        print(IntInvalidInput().message())
