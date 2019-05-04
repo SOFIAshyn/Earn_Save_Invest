@@ -63,7 +63,7 @@ class CompareBasicReal:
                               self.dif_trips_per,
                               self.dif_entertainment_per]
 
-        self.outgoing_names = ["Комунальні витрати", "Витрати на арчування",
+        self.outgoing_names = ["Комунальні витрати", "Витрати на харчування",
                                "Засоби для домогосподарства",
                                "Транспортні витрати",
                                "Несподівані витрати",
@@ -132,8 +132,8 @@ class CompareBasicReal:
                     self.all_outgoings[i]
 
         if len(too_much_money_spend):
-            res = 'Вам слід звернути увагу, що на витрату завеликої кількості ' \
-                  'коштів на :\n'
+            res = 'Вам слід звернути увагу, на витрату завеликої кількості ' \
+                  'коштів на:\n\n'
             for outgo, per in too_much_money_spend.items():
                 res += outgo + ",\tвитрачайте на {} відсотків, " \
                                "від прибутків сім\'ї, менше\n".format(str(per))
