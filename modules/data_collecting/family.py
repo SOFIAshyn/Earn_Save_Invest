@@ -366,7 +366,7 @@ class Family:
                                   'харчування: ')
         while not self.out_utility_bills:
             self.out_utility_bills = input(
-                'Введіть суму місячних комунальних витрат та, за наявності, '
+                'Введіть суму річних комунальних витрат та, за наявності, '
                 'оплату за оренду житла: ')
         while not self.out_household:
             self.out_household = input(
@@ -411,7 +411,39 @@ class Family:
                 self.benefits += person.extra_income
             if person.saving:
                 self.saving += person.saving
-            # TODO ENTERTINMENT
+            if person.out_entertainment:
+                self.out_entertainment += person.out_entertainment
+
+    def get_fam_outdoings_in_percents(self):
+        '''
+        Calculate how many money in percentage family spend and for what
+
+        :return: list
+        '''
+        utility_bills_per = round((self.out_utility_bills / 12 * 100) / \
+                                  self.fam_income, 2)
+        food_per = round((self.out_food * 100) / self.fam_income, 2)
+        household_per = round((self.out_household * 100) / \
+                              self.fam_income, 2)
+        transport_per = round((self.out_transport * 100) / \
+                              self.fam_income, 2)
+        unknown_per = round((self.out_unknown * 100) / \
+                            self.fam_income, 2)
+        education_per = round((self.out_education * 100) / \
+                              self.fam_income, 2)
+        clothes_per = round((self.out_clothes * 100) / \
+                            self.fam_income, 2)
+        trips_per = round((self.out_trips / 12 * 100) / \
+                          self.fam_income, 2)
+        entertainment_per = round((self.out_entertainment * 100) / \
+                                  self.fam_income, 2)
+        # TODO: copy it if you need
+        # all_outgoings = sum(utility_bills_per, food_per, household_per,
+        #                     transport_per, unknown_per, education_per,
+        #                     clothes_per, trips_per)
+        return [utility_bills_per, food_per, household_per,
+                transport_per, unknown_per, education_per,
+                clothes_per, trips_per, entertainment_per]
 
     def __str__(self):
         '''
@@ -431,4 +463,42 @@ class Family:
             self.out_food, self.out_utility_bills, self.out_household,
             self.out_transport, self.out_education, self.out_clothes,
             self.out_trips, self.out_unknown, self.out_entertainment)
+        return res
+
+
+class FamilyPercent:
+    '''
+    Class to contain family outgoings in percentage
+    '''
+
+    def __init__(self, all_outgoings):
+        self.utility_bills_per = all_outgoings[0]
+        self.food_per = all_outgoings[1]
+        self.household_per = all_outgoings[2]
+        self.transport_per = all_outgoings[3]
+        self.unknown_per = all_outgoings[4]
+        self.education_per = all_outgoings[5]
+        self.clothes_per = all_outgoings[6]
+        self.trips_per = all_outgoings[7]
+        self.entertainment_per = all_outgoings[8]
+
+    def __str__(self):
+        '''
+        Return all info about family
+
+        :return: str
+        '''
+        res = '{}:\nВідсоткові витрати сім\'ї\n'.format(
+            self.__class__.__name__)
+        for person in self.members:
+            res += str(person) + '\n'
+        res += 'місячні витрати на харчування = {};\nмісячні комунальні ' \
+               'витрати = {};\nмісячні побутові витрати = {};\nмісячні ' \
+               'транспортні витрати = {};\nмісячні витрат на освіту = {' \
+               '};\nмісячні витрати на одяг та взуття = {};\nрічні витрати ' \
+               'на подорожі = {};\nмісячні несподівані витрати = {};ґт' \
+               'місячні витрати на розваги = {}'.format(
+            self.food_per, self.utility_bills_per, self.household_per,
+            self.transport_per, self.education_per, self.clothes_per,
+            self.trips_per, self.unknown_per, self.entertainment_per)
         return res
