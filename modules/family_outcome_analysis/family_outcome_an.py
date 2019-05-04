@@ -1,7 +1,3 @@
-from modules.family_outcome_analysis.family_outcome_an import \
-    get_fam_outdoings_in_percents
-
-
 class UtilityBills:
     '''
     Class to calculate min outgoings on utility bills for one person
@@ -28,7 +24,7 @@ class UtilityBills:
 
     def calculate_utility_bills(self):
         '''
-        Calculate sum of utility_bills for family
+        Calculate min sum of utility_bills for family
 
         :return: float
         '''
@@ -62,6 +58,9 @@ class BasicOutgoings:
         '''
         self.members_num = members_num
 
+        self.min_utility_bills = UtilityBills(
+            self.members_num).calculate_utility_bills()
+
         self.max_utility_bills = 20
         self.food = 30
         self.household = 3
@@ -69,7 +68,7 @@ class BasicOutgoings:
         self.unknown = 5
         self.clothes = 5
         self.trips = 10
-        self.education = 50
+        self.education = 47
         self.entertainment = 5
 
         self.price_utility_bills = UtilityBills(
@@ -89,7 +88,7 @@ class BasicOutgoings:
                'витрати = {};\nмісячні побутові витрати = {};\nмісячні ' \
                'транспортні витрати = {};\nмісячні витрат на освіту = {' \
                '};\nмісячні витрати на одяг та взуття = {};\nрічні витрати ' \
-               'на подорожі = {};\nмісячні несподівані витрати = {};ґт' \
+               'на подорожі = {};\nмісячні несподівані витрати = {};\n' \
                'місячні витрати на розваги = {}'.format(self.food,
                                                         self.utility_bills,
                                                         self.household,

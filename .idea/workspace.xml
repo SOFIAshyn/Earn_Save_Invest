@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f2ac463-fead-4276-9f57-da3be6d79026" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/family_outcome_analysis/family_outcome_an.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/less_money_cases/less_money_cases.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/data_analysis/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/family_outcome_analysis/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/data_collecting/person.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/data_collecting/family.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/profit_analysis/profit_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/profit_analysis/stock_profit_analysis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/profit_analysis/stock_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/profit_analysis/stock_analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/data_collecting/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/data_collecting/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/data_collecting/family.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/data_collecting/family.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/data_comparing/compare_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/data_comparing/compare_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/family_outcome_analysis/family_outcome_an.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/family_outcome_analysis/family_outcome_an.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,8 +94,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/modules/family_outcome_analysis/family_outcome_an.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="456">
-                  <caret line="88" column="51" lean-forward="true" selection-start-line="88" selection-start-column="51" selection-end-line="88" selection-end-column="51" />
+                <state relative-caret-position="462">
+                  <caret line="92" column="61" lean-forward="true" selection-start-line="92" selection-start-column="61" selection-end-line="92" selection-end-column="61" />
                 </state>
               </provider>
             </entry>
@@ -125,8 +125,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/modules/data_collecting/family.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="458">
-                  <caret line="492" column="35" lean-forward="true" selection-start-line="492" selection-start-column="35" selection-end-line="492" selection-end-column="35" />
+                <state relative-caret-position="1837">
+                  <caret line="496" column="11" lean-forward="true" selection-start-line="496" selection-start-column="11" selection-end-line="496" selection-end-column="11" />
                   <folding>
                     <element signature="e#1574#1728#0" />
                   </folding>
@@ -137,8 +137,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
-                  <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+                <state relative-caret-position="435">
+                  <caret line="29" selection-start-line="29" selection-end-line="29" />
                   <folding>
                     <element signature="e#43#114#0" expanded="true" />
                   </folding>
@@ -147,13 +147,19 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/modules/less_money_cases/less_money_cases.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="348">
+                  <caret line="48" column="24" lean-forward="true" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/modules/data_comparing/compare_data.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="477">
-                  <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
-                  <folding>
-                    <element signature="e#0#76#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="256">
+                  <caret line="72" lean-forward="true" selection-start-line="65" selection-start-column="31" selection-end-line="72" />
                 </state>
               </provider>
             </entry>
@@ -187,6 +193,10 @@
       <find>changepo</find>
       <find>fbprophet</find>
       <find>print</find>
+      <find>FamilyP</find>
+      <find>create_advise</find>
+      <find>get_fam_outdoings_in_percents</find>
+      <find>ком</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -208,7 +218,6 @@
         <option value="$PROJECT_DIR$/modules/bank/__init__.py" />
         <option value="$PROJECT_DIR$/demo_bank.py" />
         <option value="$PROJECT_DIR$/modules/bank/banks.py" />
-        <option value="$PROJECT_DIR$/modules/data_collecting/__init__.py" />
         <option value="$PROJECT_DIR$/modules/plots/config.py" />
         <option value="$PROJECT_DIR$/modules/stocker/__init__.py" />
         <option value="$PROJECT_DIR$/demo_stocker.py" />
@@ -223,10 +232,12 @@
         <option value="$PROJECT_DIR$/modules/profit_analysis/stock_analysis.py" />
         <option value="$PROJECT_DIR$/modules/family_data_analysis/family_outcome_an.py" />
         <option value="$PROJECT_DIR$/modules/data_collecting/person.py" />
-        <option value="$PROJECT_DIR$/modules/data_collecting/family.py" />
-        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/modules/data_collecting/__init__.py" />
         <option value="$PROJECT_DIR$/modules/family_outcome_analysis/family_outcome_an.py" />
         <option value="$PROJECT_DIR$/modules/data_comparing/compare_data.py" />
+        <option value="$PROJECT_DIR$/modules/data_collecting/family.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/modules/less_money_cases/less_money_cases.py" />
       </list>
     </option>
   </component>
@@ -351,20 +362,20 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.main">
-    <configuration name="demo_stocker" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="compare_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Earn_Save_Invest-1" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/modules/data_comparing" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo_stocker.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/modules/data_comparing/compare_data.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -464,10 +475,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.compare_data" />
         <item itemvalue="Python.user_input" />
         <item itemvalue="Python.exceptions" />
         <item itemvalue="Python.stocker" />
-        <item itemvalue="Python.demo_stocker" />
       </list>
     </recent_temporary>
   </component>
@@ -489,27 +500,36 @@
       <workItem from="1555350385764" duration="3420000" />
       <workItem from="1555595046276" duration="15098000" />
       <workItem from="1555749100704" duration="23495000" />
-      <workItem from="1556833429429" duration="22323000" />
+      <workItem from="1556833429429" duration="35462000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76185000" />
+    <option name="totallyTimeSpent" value="89324000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17596567" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17596567" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32891566" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32891566" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Pylint" order="9" />
@@ -544,12 +564,12 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Earn_Save_Invest$stocker.coverage" NAME="stocker Coverage Results" MODIFIED="1555768200926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/stocker" />
     <SUITE FILE_PATH="coverage/Earn_Save_Invest$exceptions.coverage" NAME="exceptions Coverage Results" MODIFIED="1556906521082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/exceptions" />
-    <SUITE FILE_PATH="coverage/Earn_Save_Invest$main.coverage" NAME="main Coverage Results" MODIFIED="1556920986652" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Earn_Save_Invest$main.coverage" NAME="main Coverage Results" MODIFIED="1556991724525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Earn_Save_Invest$compare_data.coverage" NAME="compare_data Coverage Results" MODIFIED="1556990500629" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/data_comparing" />
     <SUITE FILE_PATH="coverage/Earn_Save_Invest$demo_stocker.coverage" NAME="demo_stocker Coverage Results" MODIFIED="1555751816092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Earn_Save_Invest$user_input.coverage" NAME="user_input Coverage Results" MODIFIED="1556915732692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/data_collecting" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/examples/scrapp/tutorial/quotes-1.html" />
     <entry file="file://$PROJECT_DIR$/examples/scrapp/tutorial/scrapy.cfg" />
     <entry file="file://$PROJECT_DIR$/examples/scrapp/product_catalog/crawlers/app.py" />
     <entry file="file://$PROJECT_DIR$/examples/scrapp/tutorial/tutorial/spiders/quotes_spider.py" />
@@ -618,13 +638,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/data_collecting/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
@@ -735,40 +748,51 @@
     <entry file="file://$PROJECT_DIR$/diagrams/IMG_6042.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/data_collecting/family.py">
+    <entry file="file://$PROJECT_DIR$/modules/data_collecting/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="492" column="35" lean-forward="true" selection-start-line="492" selection-start-column="35" selection-end-line="492" selection-end-column="35" />
-          <folding>
-            <element signature="e#1574#1728#0" />
-          </folding>
+        <state>
+          <caret column="35" selection-start-column="35" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/family_outcome_analysis/family_outcome_an.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="92" column="61" lean-forward="true" selection-start-line="92" selection-start-column="61" selection-end-line="92" selection-end-column="61" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+        <state relative-caret-position="435">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
           <folding>
             <element signature="e#43#114#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/family_outcome_analysis/family_outcome_an.py">
+    <entry file="file://$PROJECT_DIR$/modules/data_collecting/family.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="88" column="51" lean-forward="true" selection-start-line="88" selection-start-column="51" selection-end-line="88" selection-end-column="51" />
+        <state relative-caret-position="1837">
+          <caret line="496" column="11" lean-forward="true" selection-start-line="496" selection-start-column="11" selection-end-line="496" selection-end-column="11" />
+          <folding>
+            <element signature="e#1574#1728#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/data_comparing/compare_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
-          <folding>
-            <element signature="e#0#76#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="256">
+          <caret line="72" lean-forward="true" selection-start-line="65" selection-start-column="31" selection-end-line="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/less_money_cases/less_money_cases.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="48" column="24" lean-forward="true" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
         </state>
       </provider>
     </entry>

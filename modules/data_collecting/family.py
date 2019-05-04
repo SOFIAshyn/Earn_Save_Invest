@@ -145,6 +145,9 @@ class Person:
             else:
                 self.worked = None
         if self.worked is True:
+            while not self.workplace:
+                self.workplace = input(
+                    'Введіть посаду / навчальний статус члена сім\'ї: ')
             while not self.income:
                 self.income = input(
                     'Введіть суму, яку стабільно заробляє член '
@@ -167,15 +170,16 @@ class Person:
 
         :return: str
         '''
-        res = '{}{}: вік = {}; працевлаштування = {}; витрати на ' \
-              'розваги = {}'.format(
+        res = '{}{}: вік = {}; працевлаштування = {}; витрати ' \
+              'на розваги = {}'.format(
             self.__class__.__name__, self.number, self.age, self.worked,
             self.out_entertainment)
         if self.worked:
             res += '; прибуток = {}; додатковий прибуток = {}; ' \
-                   'робочі години на день = {}; заощадження = {}%'.format(
-                self.income, self.extra_income, self.hours_on_work,
-                self.saving)
+                   'посада = {}; робочі години на день = {}; заощадження = {' \
+                   '}%'.format(
+                self.income, self.extra_income, self.workplace,
+                self.hours_on_work, self.saving)
         return res
 
 
@@ -352,7 +356,6 @@ class Family:
     def saving(self, val):
         self.__saving = val
 
-    # TODO: questions as in person
     def _get_family_data(self):
         '''
         Get data from user in correct type
@@ -420,6 +423,10 @@ class Family:
 
         :return: list
         '''
+        # to deny ZerodivisionError
+        if not self.fam_income:
+            self.fam_income = 1
+
         utility_bills_per = round((self.out_utility_bills / 12 * 100) / \
                                   self.fam_income, 2)
         food_per = round((self.out_food * 100) / self.fam_income, 2)
@@ -496,7 +503,7 @@ class FamilyPercent:
                'витрати = {};\nмісячні побутові витрати = {};\nмісячні ' \
                'транспортні витрати = {};\nмісячні витрат на освіту = {' \
                '};\nмісячні витрати на одяг та взуття = {};\nрічні витрати ' \
-               'на подорожі = {};\nмісячні несподівані витрати = {};ґт' \
+               'на подорожі = {};\nмісячні несподівані витрати = {};\n' \
                'місячні витрати на розваги = {}'.format(
             self.food_per, self.utility_bills_per, self.household_per,
             self.transport_per, self.education_per, self.clothes_per,
