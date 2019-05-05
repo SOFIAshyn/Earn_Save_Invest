@@ -24,6 +24,9 @@ class CompareBasicReal:
         self.dif_trips_per = None
         self.dif_entertainment_per = None
 
+        self.all_outgoings = []
+        self.outgoing_names = []
+
         self._comparing()
 
     def _comparing(self):
@@ -118,13 +121,15 @@ class CompareBasicReal:
         :return: tuple(dict, str)
         '''
         too_much_money_spend = {}
+        res = 'Ваші витрати є оптимальними'
         for i in range(len(self.all_outgoings)):
 
+            # TODO: check if it should work or no
             # check utility. if min profit > 20% can be not enough
-            if self.outgoing_names[i] == 'Комунальні витрати':
-                if self.all_outgoings[i] <= \
-                        self.basic_outgoing.min_utility_bills:
-                    self.all_outgoings[i] = 0
+            # if self.outgoing_names[i] == 'Комунальні витрати':
+            #     if self.all_outgoings[i] <= \
+            #             self.basic_outgoing.min_utility_bills:
+            #         self.all_outgoings[i] = 0
 
             if self.all_outgoings[i] > 0:
                 # on what how many % fam can save
@@ -133,7 +138,7 @@ class CompareBasicReal:
 
         if len(too_much_money_spend):
             res = 'Вам слід звернути увагу, на витрату завеликої кількості ' \
-                  'коштів на:\n\n'
+                  'коштів. Ви можете економити;\n\n'
             for outgo, per in too_much_money_spend.items():
                 res += outgo + ",\tвитрачайте на {} відсотків, " \
                                "від прибутків сім\'ї, менше\n".format(str(per))
@@ -160,7 +165,7 @@ class CompareBasicReal:
         '''
         res = '{}:\nВідсоткові, порівняні витрати сім\'ї\n'.format(
             self.__class__.__name__)
-        for person in self.members:
+        for person in self.family_percent.members:
             res += str(person) + '\n'
         res += 'місячні витрати на харчування = {};\nмісячні комунальні ' \
                'витрати = {};\nмісячні побутові витрати = {};\nмісячні ' \

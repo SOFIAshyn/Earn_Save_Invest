@@ -232,7 +232,9 @@ class Family:
         self.__out_unknown = out_unknown
         self.__saving = saving
         # from what family have money
-        self.family_money_box = {}
+        self.family_money_box = {
+            'Початкові заощадження': self.__saving,
+        }
 
         self._get_family_data()
 
@@ -452,6 +454,29 @@ class Family:
                 transport_per, unknown_per, education_per,
                 clothes_per, trips_per, entertainment_per]
 
+    def saved_percentage_to_UAH(self, list_with_difference_in_percentage,
+                                list_with_names):
+        '''
+        Calculate how much money we can save in one month
+        Change money box
+
+        :return: None
+        '''
+        lst = list_with_difference_in_percentage
+
+        for i in range(len(lst)):
+            persent = lst[i]
+            self.family_money_box[list_with_names[i]] = \
+                round(persent * self.fam_income / 100, 2)
+
+    def save_more_money_from_saved_money(self):
+        '''
+        We hae saved some money and can have some benefits from it
+
+        :return:
+        '''
+        pass
+
     def __str__(self):
         '''
         Return all info about family
@@ -466,7 +491,7 @@ class Family:
                'транспортні витрати = {};\nмісячні витрат на освіту = {' \
                '};\nмісячні витрати на одяг та взуття = {};\nрічні витрати ' \
                'на подорожі = {};\nмісячні несподівані витрати = {};\n' \
-               'місячні витрати на розваги = {}'.format(
+               'місячні витрати на розваги = {}\n'.format(
             self.out_food, self.out_utility_bills, self.out_household,
             self.out_transport, self.out_education, self.out_clothes,
             self.out_trips, self.out_unknown, self.out_entertainment)
@@ -478,7 +503,14 @@ class FamilyPercent:
     Class to contain family outgoings in percentage
     '''
 
-    def __init__(self, all_outgoings):
+    def __init__(self, all_outgoings, members):
+        '''
+        Initialize all attributes
+        :param all_outgoings: list
+        :param members: list of Person
+        '''
+        self.members = members
+
         self.utility_bills_per = all_outgoings[0]
         self.food_per = all_outgoings[1]
         self.household_per = all_outgoings[2]
@@ -504,7 +536,7 @@ class FamilyPercent:
                'транспортні витрати = {};\nмісячні витрат на освіту = {' \
                '};\nмісячні витрати на одяг та взуття = {};\nрічні витрати ' \
                'на подорожі = {};\nмісячні несподівані витрати = {};\n' \
-               'місячні витрати на розваги = {}'.format(
+               'місячні витрати на розваги = {};\n'.format(
             self.food_per, self.utility_bills_per, self.household_per,
             self.transport_per, self.education_per, self.clothes_per,
             self.trips_per, self.unknown_per, self.entertainment_per)

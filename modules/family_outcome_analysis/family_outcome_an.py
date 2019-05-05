@@ -22,6 +22,8 @@ class UtilityBills:
         self.fam_area = 20  # m^2
         self.person_area = 21  # m^2
 
+        self.all_area = self.person_area * self.members_num + self.fam_area
+
     def calculate_utility_bills(self):
         '''
         Calculate min sum of utility_bills for family
@@ -29,8 +31,7 @@ class UtilityBills:
         :return: float
         '''
         # jek offers
-        fam_jek_price = (self.person_area * self.members_num +
-                         self.fam_area) * self.jek_area_price
+        fam_jek_price = self.all_area * self.jek_area_price
 
         # family water price
         fam_water_price = self.month_water * self.members_num * self.water_price
@@ -51,12 +52,13 @@ class BasicOutgoings:
     Class to analise user data/outgoings with optimal values
     '''
 
-    def __init__(self, members_num):
+    def __init__(self, members):
         '''
         inintialize all the attributes according to standarts
         More than 100% because family can have some fields absolutely empty
         '''
-        self.members_num = members_num
+        self.members = members
+        self.members_num = len(members)
 
         self.min_utility_bills = UtilityBills(
             self.members_num).calculate_utility_bills()
@@ -85,17 +87,19 @@ class BasicOutgoings:
         for person in self.members:
             res += str(person) + '\n'
         res += 'місячні витрати на харчування = {};\nмісячні комунальні ' \
-               'витрати = {};\nмісячні побутові витрати = {};\nмісячні ' \
-               'транспортні витрати = {};\nмісячні витрат на освіту = {' \
-               '};\nмісячні витрати на одяг та взуття = {};\nрічні витрати ' \
-               'на подорожі = {};\nмісячні несподівані витрати = {};\n' \
-               'місячні витрати на розваги = {}'.format(self.food,
-                                                        self.utility_bills,
-                                                        self.household,
-                                                        self.transport,
-                                                        self.education,
-                                                        self.clothes,
-                                                        self.trips,
-                                                        self.unknown,
-                                                        self.entertainment)
+               'витрати = від {}UAH до {};\nмісячні побутові витрати = {' \
+               '};\nмісячні транспортні витрати = {};\nмісячні витрат ' \
+               'на освіту = {};\nмісячні витрати на одяг та взуття = {};' \
+               '\nрічні витрати на подорожі = {};\nмісячні несподівані ' \
+               'витрати = {};\nмісячні витрати на розваги = {};\n'.format(
+            self.food,
+            self.min_utility_bills,
+            self.max_utility_bills,
+            self.household,
+            self.transport,
+            self.education,
+            self.clothes,
+            self.trips,
+            self.unknown,
+            self.entertainment)
         return res
