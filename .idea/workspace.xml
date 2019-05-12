@@ -15,8 +15,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/modules/bank/banks.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="565">
               <caret line="120" column="39" selection-start-line="120" selection-start-column="39" selection-end-line="120" selection-end-column="39" />
+=======
+            <state relative-caret-position="25">
+              <caret line="93" column="8" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="8" />
+>>>>>>> 843686ed31b00daf672bc8c0442b38e400b09ee4
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -183,19 +188,31 @@
       <workItem from="1555595046276" duration="16397000" />
       <workItem from="1555697487225" duration="2869000" />
       <workItem from="1555752584493" duration="7290000" />
+<<<<<<< HEAD
       <workItem from="1555887220095" duration="1015000" />
       <workItem from="1556866243909" duration="16000" />
       <workItem from="1557126184668" duration="68000" />
+=======
+      <workItem from="1555887220095" duration="345000" />
+>>>>>>> 843686ed31b00daf672bc8c0442b38e400b09ee4
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="42924000" />
+=======
+    <option name="totallyTimeSpent" value="42170000" />
+>>>>>>> 843686ed31b00daf672bc8c0442b38e400b09ee4
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="26" width="1920" height="1054" extended-state="6" />
     <layout>
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18589744" />
+=======
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18162394" />
+>>>>>>> 843686ed31b00daf672bc8c0442b38e400b09ee4
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -330,8 +347,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/bank/banks.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="565">
           <caret line="120" column="39" selection-start-line="120" selection-start-column="39" selection-end-line="120" selection-end-column="39" />
+=======
+        <state relative-caret-position="25">
+          <caret line="93" column="8" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="8" />
+>>>>>>> 843686ed31b00daf672bc8c0442b38e400b09ee4
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
