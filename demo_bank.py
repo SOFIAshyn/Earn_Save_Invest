@@ -1,4 +1,9 @@
 from modules.bank import *
 
 b = BankType()
-print(b.banks_processing())
+a = b.banks_processing()
+print(b.conditions)
+# for each in a:
+#     print(each)
+    # for program in each.programs:
+    #     print(program)
