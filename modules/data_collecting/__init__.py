@@ -1,1 +1,1 @@
-from modules.data_collecting.person import *
+from modules.data_collecting.family import *
