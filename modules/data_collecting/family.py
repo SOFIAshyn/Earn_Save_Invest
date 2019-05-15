@@ -8,16 +8,21 @@ class Person:
 
     def __init__(self, i,
                  age=0,
+                 name=None,
                  worked=None,
                  workplace=None,
-                 income=0.0,
-                 extra_income=0.0,
+                 income=1.0,
+                 extra_income=1.0,
                  hours_on_work=0,
-                 saving=0,
+                 saving=1,
+                 out_transport=0.0,
+                 out_clothes=0.0,
+                 out_education=0.0,
                  out_entertainment=0.0):
         '''
         Initialize all the attributes
         :param i: int
+        :param name: None
         :param age: int
         :param worked: None
         :param workplace: None
@@ -28,18 +33,22 @@ class Person:
         :param out_entertainment: float
         '''
         self.number = i + 1
+        self.name = name
         self.__age = age
         self.__worked = worked
         # TODO: create list of positions and on data analisys offer
         #  additional income
-        self.__workplace = workplace
-        self.__income = income
-        self.__extra_income = extra_income
-        self.__hours_on_work = hours_on_work
-        self.__saving = saving
-        self.__out_entertainment = out_entertainment
+        self.__workplace = workplace  # current
+        self.__income = income  # per month
+        self.__extra_income = extra_income  # per month
+        self.__hours_on_work = hours_on_work  # per day
+        self.__saving = saving  # per month
+        self.__out_transport = out_transport  # per month
+        self.__out_clothes = out_clothes  # per month
+        self.__out_education = out_education  # per month
+        self.__out_entertainment = out_entertainment  # per month
         self.money_box = {
-            'Previous savings': saving,
+            'Стабільні заощадження': saving,
         }
         # get data from user
         self._get_person_data()
@@ -116,6 +125,39 @@ class Person:
             self.__saving = None
 
     @property
+    def out_transport(self):
+        return self.__out_transport
+
+    @out_transport.setter
+    def out_transport(self, val=0):
+        try:
+            self.__out_transport = float(val)
+        except ValueError:
+            self.__out_transport = None
+
+    @property
+    def out_clothes(self):
+        return self.__out_clothes
+
+    @out_clothes.setter
+    def out_clothes(self, val):
+        try:
+            self.__out_clothes = float(val)
+        except ValueError:
+            self.__out_clothes = None
+
+    @property
+    def out_education(self):
+        return self.__out_education
+
+    @out_education.setter
+    def out_education(self, val):
+        try:
+            self.__out_education = float(val)
+        except ValueError:
+            self.__out_education = None
+
+    @property
     def out_entertainment(self):
         return self.__out_entertainment
 
@@ -133,6 +175,8 @@ class Person:
         :return: None
         '''
         print('Введіть інформацію про члена сім\'ї № {}'.format(self.number))
+        while not self.name:
+            self.name = input('Iм\'я: ')
         while not self.age:
             self.age = input('Вік: ')
         while self.worked is None:
@@ -144,6 +188,7 @@ class Person:
                 self.worked = False
             else:
                 self.worked = None
+        # TODO: check income and extra income for a time
         if self.worked is True:
             while not self.workplace:
                 self.workplace = input(
@@ -151,18 +196,28 @@ class Person:
             while not self.income:
                 self.income = input(
                     'Введіть суму, яку стабільно заробляє член '
-                    'сім\'ї: ')
-            self.extra_income = input('Введіть додатковий '
-                                      'прибуток, яку отримує '
-                                      'член сім\'ї: ')
+                    'сім\'ї за місяць: ')
             while not self.hours_on_work:
                 self.hours_on_work = input(
                     'Скільки годин на день працює член сім\'ї: ')
-            self.saving = input('Скільки відсотків від доходу / додаткового '
-                                'доходу заощаджує член сім\'ї: ')
+        self.extra_income = input('Введіть додатковий '
+                                  'прибуток, який отримує '
+                                  'член сім\'ї на місяць: ')
+        self.saving = input('Скільки відсотків від загального '
+                            'прибутку щомісячно заощаджує '
+                            'член сім\'ї: ')
+        while not self.out_transport:
+            self.out_transport = input(
+                'Введіть суму місячних витрат особи на транспорт: ')
+        while not self.out_education:
+            self.out_education = input(
+                'Введіть суму місячних витрат на освіту: ')
+        while not self.out_clothes:
+            self.out_clothes = input(
+                'Введіть суму місячних витрат на одяг та взуття: ')
         while not self.out_entertainment:
             self.out_entertainment = input(
-                'Введіть суму річних витрат на розваги: ')
+                'Введіть суму місячних витрат особи на розваги та спорт: ')
 
     def __str__(self):
         '''
@@ -170,9 +225,11 @@ class Person:
 
         :return: str
         '''
-        res = '{}{}: вік = {}; працевлаштування = {}; витрати ' \
-              'на розваги = {}'.format(
+        res = '{}{}: вік = {}; працевлаштування = {}; витрати на траспорт = ' \
+              '{}; витрати на одяг та взуття = {}; витрати на освіту = {}; ' \
+              'витрати на розваги та спорт = {}'.format(
             self.__class__.__name__, self.number, self.age, self.worked,
+            self.out_transport, self.out_clothes, self.out_education,
             self.out_entertainment)
         if self.worked:
             res += '; прибуток = {}; додатковий прибуток = {}; ' \
@@ -195,9 +252,9 @@ class Family:
                  out_food=None,
                  out_utility_bills=None,
                  out_household=None,
-                 out_transport=None,
+                 out_transport=0.0,
                  out_education=0.0,
-                 out_clothes=None,
+                 out_clothes=0.0,
                  out_entertainment=0.0,
                  out_trips=None,
                  out_unknown=None,
@@ -210,7 +267,7 @@ class Family:
         :param out_food: none
         :param out_utility_bills: None
         :param out_household: None
-        :param out_transport: None
+        :param out_transport: float
         :param out_education: float
         :param out_clothes: None
         :param entertainment: float
@@ -219,18 +276,18 @@ class Family:
         :param saving: int
         '''
         self.members = members
-        self.__fam_income = fam_income
-        self.__benefits = benefits
-        self.__out_food = out_food
-        self.__out_utility_bills = out_utility_bills  # комунальні витрати
-        self.__out_household = out_household  # побутові витрати
-        self.__out_transport = out_transport
-        self.__out_education = out_education
-        self.__out_clothes = out_clothes
-        self.__out_entertainment = out_entertainment
-        self.__out_trips = out_trips
-        self.__out_unknown = out_unknown
-        self.__saving = saving
+        self.__fam_income = fam_income  # per month
+        self.__benefits = benefits  # per_month
+        self.__out_food = out_food  # per month
+        self.__out_utility_bills = out_utility_bills  # комунальні витрати per month
+        self.__out_household = out_household  # побутові витрати per month
+        self.__out_transport = out_transport  # per month
+        self.__out_education = out_education  # per month
+        self.__out_clothes = out_clothes  # per month
+        self.__out_entertainment = out_entertainment  # per month
+        self.__out_trips = out_trips  # per month
+        self.__out_unknown = out_unknown  # per month
+        self.__saving = saving  # per month
         # from what family have money
         self.family_money_box = {
             'Початкові заощадження': self.__saving,
@@ -272,6 +329,9 @@ class Family:
     @out_utility_bills.setter
     def out_utility_bills(self, val):
         try:
+            # PER YEAR - more correct
+            # self.__out_utility_bills = round(float(val) / 12, 2)
+            # PER MONTH - user usaully don't notice
             self.__out_utility_bills = float(val)
         except ValueError:
             self.__out_utility_bills = None
@@ -335,7 +395,7 @@ class Family:
     @out_trips.setter
     def out_trips(self, val):
         try:
-            self.__out_trips = float(val)
+            self.__out_trips = round(float(val) / 12, 2)
         except ValueError:
             self.__out_trips = None
 
@@ -371,8 +431,8 @@ class Family:
                                   'харчування: ')
         while not self.out_utility_bills:
             self.out_utility_bills = input(
-                'Введіть суму річних комунальних витрат та, за наявності, '
-                'оплату за оренду житла: ')
+                'Введіть середню суму місячних комунальних витрат та, '
+                'за наявності, оплату за оренду житла: ')
         while not self.out_household:
             self.out_household = input(
                 'Введіть суму місячних побутових витрат\n(засоби гігієни, '
@@ -380,18 +440,12 @@ class Family:
         while not self.out_transport:
             self.out_transport = input(
                 'Введіть суму місячних транспортних витрат: ')
-        while not self.out_education:
-            self.out_education = input(
-                'Введіть суму місячних витрат на освіту: ')
-        while not self.out_clothes:
-            self.out_clothes = input(
-                'Введіть суму місячних витрат на одяг та взуття: ')
         while not self.out_trips:
             self.out_trips = input(
                 'Введіть суму річних витрат на подорожі: ')
         while not self.out_unknown:
             self.out_unknown = input(
-                'Введіть суму місячниха несподіваних витрат: ')
+                'Введіть суму місячних несподіваних витрат: ')
 
         # TODO: get to understand if we need these variables
 
@@ -400,7 +454,7 @@ class Family:
                           self.out_transport
         gen_per_year = self.out_trips + self.out_unknown + self.out_education
         if self.fam_income + self.benefits < general_outcome:
-            print('Ви маєте серйозні проблеми з бюджнтом. Слідкуйте за '
+            print('Ви маєте проблеми з бюджнтом. Слідкуйте за '
                   'порадами платформи Earn Save Invest')
 
     def _set_default_family_data(self):
@@ -416,20 +470,25 @@ class Family:
                 self.benefits += person.extra_income
             if person.saving:
                 self.saving += person.saving
+            if person.out_transport:
+                self.out_transport += person.out_transport
             if person.out_entertainment:
                 self.out_entertainment += person.out_entertainment
+            if person.out_education:
+                self.out_education += person.out_education
+            if person.out_clothes:
+                self.out_clothes += person.out_clothes
 
     def get_fam_outdoings_in_percents(self):
         '''
         Calculate how many money in percentage family spend and for what
-
         :return: list
         '''
-        # to deny ZerodivisionError
+        # to deny ZeroDivisionError
         if not self.fam_income:
             self.fam_income = 1
-
-        utility_bills_per = round((self.out_utility_bills / 12 * 100) / \
+        # TODO: check why utility bills are uncorrect
+        utility_bills_per = round((self.out_utility_bills * 100) / \
                                   self.fam_income, 2)
         food_per = round((self.out_food * 100) / self.fam_income, 2)
         household_per = round((self.out_household * 100) / \
@@ -442,7 +501,7 @@ class Family:
                               self.fam_income, 2)
         clothes_per = round((self.out_clothes * 100) / \
                             self.fam_income, 2)
-        trips_per = round((self.out_trips / 12 * 100) / \
+        trips_per = round((self.out_trips * 100) / \
                           self.fam_income, 2)
         entertainment_per = round((self.out_entertainment * 100) / \
                                   self.fam_income, 2)
@@ -466,7 +525,7 @@ class Family:
 
         for i in range(len(lst)):
             persent = lst[i]
-            self.family_money_box[list_with_names[i]] = \
+            self.family_money_box[list_with_names[i] + ' - збереження'] = \
                 round(persent * self.fam_income / 100, 2)
 
     def save_more_money_from_saved_money(self):
