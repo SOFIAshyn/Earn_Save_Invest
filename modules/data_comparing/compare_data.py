@@ -126,10 +126,14 @@ class CompareBasicReal:
 
             # TODO: check if it should work or no
             # check utility. if min profit > 20% can be not enough
-            # if self.outgoing_names[i] == 'Комунальні витрати':
-            #     if self.all_outgoings[i] <= \
-            #             self.basic_outgoing.min_utility_bills:
-            #         self.all_outgoings[i] = 0
+            if self.outgoing_names[i] == 'Комунальні витрати':
+                if self.all_outgoings[i] <= \
+                        self.basic_outgoing.min_utility_bills:
+                    self.all_outgoings[i] = 0
+            if self.outgoing_names[i] == 'Витрати на харчування':
+                MIN_FOR_FOOD = 2000
+                if self.all_outgoings[i] <= MIN_FOR_FOOD:
+                    self.all_outgoings[i] = 0
 
             if self.all_outgoings[i] > 0:
                 # on what how many % fam can save
@@ -138,7 +142,7 @@ class CompareBasicReal:
 
         if len(too_much_money_spend):
             res = 'Вам слід звернути увагу, на витрату завеликої кількості ' \
-                  'коштів. Ви можете економити;\n\n'
+                  'коштів. Ви можете економити:\n\n'
             for outgo, per in too_much_money_spend.items():
                 res += outgo + ",\tвитрачайте на {} відсотків, " \
                                "від прибутків сім\'ї, менше\n".format(str(per))
