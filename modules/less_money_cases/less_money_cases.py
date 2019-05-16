@@ -134,15 +134,16 @@ class CaseUtilityBills(Cases):
         # on 20m^2 you max need 6 LED
         area = ut_b.all_area
         LED_num = area / 20 * 6
-        LED_saving = LED_num * 215
+        LED_saving = LED_num * 215 / 12
+        # per month
         self.FAM_SAVINGS['Заощадження на LED лампочках'] = round(LED_saving, 2)
 
         # washing machine - less in 2 - 3 times water + 2 - 2,5 kVt
         # scullion - less in 4 - 5 times water, + 1kVt
         # 1/3 of water for people usage
         # rest - washing machine and scullion
-        # 15 times per month both machines
-        TIMES_MACHINE_RUNS_PER_MONTH = 15
+        # 27 times per year both machines
+        TIMES_MACHINE_RUNS_PER_MONTH = 27
         WASHING_MACHINE_kVt_1_LOOP = 2.5
         SCULLION_kVt_1_LOOP = 1
         WASHING_MACHINE_m3_1_LOOP = 2.5
@@ -155,8 +156,9 @@ class CaseUtilityBills(Cases):
                 WASHING_MACHINE_m3_1_LOOP + SCULLION_m3_1_LOOP)
         # how much money we save
         # more kVt , less m3
-        machines_saving = minus_water_m3 * ut_b.water_price - \
-                          plus_kVt * ut_b.el_price
+        machines_saving = (minus_water_m3 * ut_b.water_price - \
+                           plus_kVt * ut_b.el_price) / 12
+        # per month
         self.FAM_SAVINGS[
             'Заощадження на машинах хатньої роботи'] = round(
             machines_saving, 2)
@@ -165,6 +167,7 @@ class CaseUtilityBills(Cases):
         PDV = 19.9
         fam_utility_bills = ut_b.calculate_utility_bills()
         refund_utility_bills = round(fam_utility_bills * PDV / 100, 2)
+        # per month
         self.FAM_SAVINGS[
             'Повернення податку на комунальні послуги'] = \
             round(refund_utility_bills, 2)
@@ -206,6 +209,7 @@ class CaseHousehold(Cases):
         household_out = self.family.out_household
         household_saving = round(household_out * HOUSEHOLDING_TYPICAL_SALE /
                                  100, 2)
+        # per month
         self.FAM_SAVINGS[
             'Купівля миючих засобів оптом, по акції'] = household_saving
 
@@ -247,6 +251,7 @@ class CaseTrips(Cases):
         TRIP_SAVING = 5
         trips_out = self.person_instance.out_trips
         trip_saving = trips_out * TRIP_SAVING / 100
+        # per month
         self.FAM_SAVINGS['Збереження 5% від відпочинку'] = round(
             trip_saving, 2)
 
@@ -293,12 +298,14 @@ class CaseClothes(Cases):
         CLOTHES_TYPICAL_SALE = 10
         clothes_saving = round(clothes_out * CLOTHES_TYPICAL_SALE /
                                100, 2)
+        # per month
         self.PER_SAVINGS['Купівля одягу по знижках'] = clothes_saving
 
         # sell 1/2 of your clothes
         SEVED_SELL_CLOTHES_PRICE = 30
         old_clothes_saving = round(clothes_out * SEVED_SELL_CLOTHES_PRICE /
                                    100, 2)
+        # per month
         self.PER_SAVINGS['Перепродаж старого одягу'] = old_clothes_saving
 
 
@@ -320,6 +327,7 @@ class CaseEducation(Cases):
             EDUCATION_AV_SAVING = 50
             edu_saving = round(self.family.out_education * \
                                EDUCATION_AV_SAVING / 100, 2)
+            # per month
             self.PER_SAVINGS['Отримання грантів / пільг'] = edu_saving
 
 

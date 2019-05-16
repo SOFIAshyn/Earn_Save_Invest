@@ -8,6 +8,7 @@ import datetime as dt
 import pandas_datareader.data as web
 from modules.plots.main_plot import company_middle_plot
 
+
 # TODO: check if withut () will work
 class Stocker():
     '''
@@ -297,7 +298,6 @@ class Stocker():
         # plt.xlabel('Date')
         # plt.title('Predictions for %s' % self.symbol)
         # plt.show()
-
 
     def calculate_stock_income(self, days=30):
         '''
