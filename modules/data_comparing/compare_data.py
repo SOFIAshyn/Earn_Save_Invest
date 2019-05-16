@@ -124,7 +124,6 @@ class CompareBasicReal:
         res = 'Ваші витрати є оптимальними'
         for i in range(len(self.all_outgoings)):
 
-            # TODO: check if it should work or no
             # check utility. if min profit > 20% can be not enough
             if self.outgoing_names[i] == 'Комунальні витрати':
                 if self.all_outgoings[i] <= \
@@ -135,6 +134,9 @@ class CompareBasicReal:
                 if self.all_outgoings[i] <= MIN_FOR_FOOD:
                     self.all_outgoings[i] = 0
 
+            # if number is negative it is mean that family spend less money
+            # than expected, it is nice
+            # otherwise we count how many % family could save:
             if self.all_outgoings[i] > 0:
                 # on what how many % fam can save
                 too_much_money_spend[self.outgoing_names[i]] = \

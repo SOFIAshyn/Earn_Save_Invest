@@ -11,7 +11,7 @@ class Person:
                  name=None,
                  worked=None,
                  workplace=None,
-                 income=1.0,
+                 income=0.0,
                  extra_income=1.0,
                  hours_on_work=0,
                  saving=1,
