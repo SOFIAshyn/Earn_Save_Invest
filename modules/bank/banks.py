@@ -84,9 +84,12 @@ class Bank:
 
     def update(self):
         self.index += len(self.programs) * self.coeffs['programs']
-        print(self)
-        for each in self.programs:
-            print(each.find_best())
+        self.index += float(self.rating) * self.coeffs['rating']
+        self.programs = [each for each in self.programs if each.find_best() is not None]
+        
+        print(self, '\n', sorted(self.programs, key=lambda x: x.find_best()[3])[-1])
+        # for each in self.programs:
+        #     print(each.find_best())
 
 
 class Program:
@@ -110,12 +113,15 @@ class Program:
         res = []
         for each in currency:
             # min_invest = float(each[0])
-            min_invest = float(2500000)
+            min_invest = float(10000000)
+            num_of_years = 1
             for months in each[1]:
-                num_of_months = year / float(months)
-                t = float(each[1][months]) / 100 / float(num_of_months)
-                a = round(min_invest * ((1 + t) ** float(num_of_months)), 2)
-                res.append([min_invest, months, a])
+                num_of_adds = year / float(months)
+                year_rate = float(each[1][months])
+                n = num_of_years * num_of_adds
+                result = round(min_invest * (1 + year_rate / 100 / num_of_adds)
+                               ** n, 2)
+                res.append([float(each[0]), months, min_invest, result])
         if not res:
             return None
         return (sorted(res, key=lambda x: x[2]))[-1]
@@ -133,4 +139,3 @@ class Program:
                 if current[-1] is []:
                     current.pop(-1)
         return current
-
