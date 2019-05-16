@@ -26,7 +26,7 @@ class BankType:
 
     def update_instance(self):
         """
-        update the Banks
+        update the Banks: their indexes, titles, programs, etc.
         :return: list of Bank instances
         """
         res = []
@@ -43,6 +43,11 @@ class BankType:
 
     @staticmethod
     def parse_programs(program):
+        """
+        method for parsing programs of banks
+        :param program: current program
+        :return: list of Program instances
+        """
         res = []
         for each in program:
             res.append(Program(each["id_condition"], each['title'],
@@ -52,10 +57,10 @@ class BankType:
     def banks_processing(self):
         self.update_information()
         res = sorted(self.update_instance(),
-                     key=lambda x: float(x.rating))[::-1]
+                     key=lambda x: float(x.index))[::-1]
         # for b in res:
         #     print(b)
-        # return res
+        return res
 
 
 class Bank:
@@ -79,6 +84,9 @@ class Bank:
 
     def update(self):
         self.index += len(self.programs) * self.coeffs['programs']
+        print(self)
+        for each in self.programs:
+            print(each.find_best())
 
 
 class Program:
@@ -91,10 +99,26 @@ class Program:
         self.USD_rates = []
         self.rates = self.transform_rates(rates)
         # print(self.UAH_rates)
-        self.find_minimum(self.UAH_rates)
+        # self.find_best(self.UAH_rates)
 
     def __repr__(self):
         return '{}'.format(self.title)
+
+    def find_best(self):
+        currency = self.UAH_rates
+        year = 12
+        res = []
+        for each in currency:
+            # min_invest = float(each[0])
+            min_invest = float(2500000)
+            for months in each[1]:
+                num_of_months = year / float(months)
+                t = float(each[1][months]) / 100 / float(num_of_months)
+                a = round(min_invest * ((1 + t) ** float(num_of_months)), 2)
+                res.append([min_invest, months, a])
+        if not res:
+            return None
+        return (sorted(res, key=lambda x: x[2]))[-1]
 
     def transform_rates(self, rates):
         for each in rates:
@@ -110,20 +134,3 @@ class Program:
                     current.pop(-1)
         return current
 
-    # @staticmethod
-    # def percentage(summ, percent):
-    #     return float(summ) * float(percent) / 100
-
-    def find_minimum(self, currency):
-        year = 12
-        res = []
-        for each in currency:
-            min_invest = float(each[0])
-            for months in each[1]:
-                num_of_months = year / float(months)
-                t = float(each[1][months])/100/float(num_of_months)
-                a = round(min_invest * ((1 + t)**float(num_of_months)), 2)
-
-                res.append([min_invest, months, a])
-
-        return res
