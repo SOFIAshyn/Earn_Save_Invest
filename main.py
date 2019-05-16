@@ -9,6 +9,7 @@ from modules.family_outcome_analysis.family_outcome_an import BasicOutgoings
 from modules.data_comparing.compare_data import CompareBasicReal
 from modules.data_collecting.family import FamilyPercent
 from modules.less_money_cases.less_money_cases import Cases
+from modules.bank import *
 
 
 def use_cases_spend_less_money(too_much_money_spend, fam):
@@ -106,7 +107,7 @@ def main():
     # print(general_sum)
 
     # TODO: DELETE
-    general_sum = 1000
+    general_sum = 100
 
     # DO MAGIC WITH SAVED SUM
     print('Вітаємо!\n{} - це гроші, які ви можете заощадити за місяць часу, '
@@ -116,7 +117,17 @@ def main():
           'вкладів:'.format(general_sum))
 
     # give data about banks
-
+    print("Банки: ")
+    ### інфа поки лише в гривні ###
+    b = BankType(general_sum)
+    a = b.banks_processing()
+    a = sorted(a, key=lambda x: x.index)[::-1][:5]
+    # print(type(a))
+    for each in a:
+        try:
+            print(each)
+        except TypeError:
+            continue
     # give data of stock market
 
     # give data about hryvna
