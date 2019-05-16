@@ -10,18 +10,18 @@ from modules.plots.main_plot import company_middle_plot
 
 
 # TODO: check if withut () will work
-class Stocker():
-    '''
+class Stocker:
+    """
     Class for analyzing and (attempting) to predict future prices
     Contains a number of visualizations methods
-    '''
+    """
 
     def __init__(self, ticker):
-        '''
+        """
         Initialization requires a ticker symbol
 
         :param ticker: str
-        '''
+        """
 
         # Enforce capitalization
         ticker = ticker.upper()
@@ -152,11 +152,11 @@ class Stocker():
     # Not sure if this should be a static method
     @staticmethod
     def reset_plot():
-        '''
+        """
         Reset the plotting parameters to clear style formatting
         Not sure if this should be a static method
         :return: None
-        '''
+        """
 
         # Restore default parameters
         matplotlib.rcParams.update(matplotlib.rcParamsDefault)
@@ -170,11 +170,11 @@ class Stocker():
         matplotlib.rcParams['text.color'] = 'k'
 
     def remove_weekends(self, dataframe):
-        '''
+        """
         Remove weekends from a dataframe
         :param dataframe: pandas DataFrame
         :return: pandas DataFrame
-        '''
+        """
 
         # Reset index to use ix
         dataframe = dataframe.reset_index(drop=True)
@@ -192,10 +192,10 @@ class Stocker():
         return dataframe
 
     def create_model(self):
-        '''
+        """
         Create a prophet model without training
         :return: Prophet
-        '''
+        """
         # Make the model
         model = fbprophet.Prophet(daily_seasonality=self.daily_seasonality,
                                   weekly_seasonality=self.weekly_seasonality,
@@ -210,11 +210,11 @@ class Stocker():
         return model
 
     def predict_future(self, days=70):
-        '''
+        """
         Predict the future price for a given range of days
         :param days: int
         :return: pandas DataFrame
-        '''
+        """
         # Use past self.training_years years for training
         train = self.stock[self.stock['Date'] > (
                 max(self.stock['Date']) - pd.DateOffset(
@@ -252,18 +252,25 @@ class Stocker():
         future_increase = future[future['direction'] == 1]
         future_decrease = future[future['direction'] == 0]
 
+        future_increase = future_increase[
+            ['Date', 'estimate', 'change', 'upper', 'lower']]
+
         # Print out the dates
-        print('\nPredicted Increase: \n')
-        print(
-            future_increase[['Date', 'estimate', 'change', 'upper', 'lower']])
+        # print('\nPredicted Increase: \n')
+        # print(
+        #     type(future_increase[['Date', 'estimate', 'change', 'upper',
+        #                           'lower']]))
+        # print(future_increase)
+        # file = open(r'modules\tmp\future_increase.csv', 'w+')
+        # file.write('s')
+        # future_increase.to_csv(r'tmp\future_increase.csv', index=False,
+        #                        header=False)
 
-        print('\nPredicted Decrease: \n')
-        print(
-            future_decrease[['Date', 'estimate', 'change', 'upper', 'lower']])
+        # print('\nPredicted Decrease: \n')
+        # print(
+        #     future_decrease[['Date', 'estimate', 'change', 'upper', 'lower']])
 
-        company_middle_plot(future_increase['Date'],
-                            future_increase['estimate'], self.symbol)
-        return future
+        return future_increase
 
         # Plot in matplot lib with errorbar
         # self.reset_plot()
@@ -298,11 +305,19 @@ class Stocker():
         # plt.xlabel('Date')
         # plt.title('Predictions for %s' % self.symbol)
         # plt.show()
+    def check_month_interval(self, future_increase):
+        """
+        Check future increase or decrease
+        :param future_increase:
+        :return: float
+        """
+        pass
 
-    def calculate_stock_income(self, days=30):
-        '''
+    def show_plots(self, days=30):
+        """
         Calculate company and how many may it earn / get
         :param days: int
         :return: float
-        '''
-        pass
+        """
+        company_middle_plot(future_increase['Date'],
+                            future_increase['estimate'], self.symbol)

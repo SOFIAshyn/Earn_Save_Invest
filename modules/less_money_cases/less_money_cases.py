@@ -1,9 +1,9 @@
-'''
+"""
 
 To know all information about spending less money
 We can use this cases to calculate how much money he / she can save
 
-'''
+"""
 import re
 
 from modules.family_outcome_analysis.family_outcome_an import UtilityBills
@@ -13,51 +13,51 @@ from modules.family_outcome_analysis.family_outcome_an import UtilityBills
 #
 
 class Cases:
-    '''
+    """
     Class to create cases for user to save money
-    '''
+    """
     SAVINGS = {}
     FAM_SAVINGS = {}
     PER_SAVINGS = {}
 
     def __init__(self, family_instance):
-        '''
+        """
         Initialize all the attributes
         :param family_instance: Family
-        '''
+        """
         self.name = ''
         self.file = ''
         self.cases = []
         self.family = family_instance
 
     def _read_file(self):
-        '''
+        """
         Get cases from the file
 
         :return: None
-        '''
+        """
         with open(self.file, 'r') as file:
             cases = file.read()
         self.cases = re.split(r'\n(?=[А-Я])', cases)
 
     def add_case(self):
-        '''
+        """
         Get case from cases and add it to sting
         to present information for user
 
         :return: str
-        '''
+        """
         self._read_file()
-        res = f'\n{self.name}:\n'
+        res = '\n{}:\n'.format(self.name)
         for i, case in enumerate(self.cases):
-            res += f'{i + 1}.\t{case}\n'
+            res += "{}.\t{}\n".format(i + 1, case)
         return res
 
     def get_all_cases(self):
-        '''
+        """
         Get all cases together
         :return: str
-        '''
+        """
         person = None
         lst_f = [CaseUtilityBills(self.family),
                  CaseFood(self.family),
@@ -77,11 +77,11 @@ class Cases:
         return res
 
     def get_all_possible_savings(self):
-        '''
+        """
         Based on pieces of advice recommend real numbers to user
 
         :return:dict
-        '''
+        """
         CaseUtilityBills(self.family).get_all_possible_savings()
         CaseFood(self.family).get_all_possible_savings()
         CaseHousehold(self.family).get_all_possible_savings()
@@ -111,24 +111,24 @@ class Cases:
 
 
 class CaseUtilityBills(Cases):
-    '''
+    """
     Subclass of different cases
-    '''
+    """
 
     def __init__(self, family_instance):
-        '''
+        """
         Initialize all the attributes
-        '''
+        """
         super(CaseUtilityBills, self).__init__(family_instance)
         self.name = "Комунальні витрати"
         self.file = 'modules/less_money_cases/case_utility_bills.txt'
 
     def get_all_possible_savings(self):
-        '''
+        """
         Count possible money-back with utility bills
 
         :return: None
-        '''
+        """
         ut_b = UtilityBills(len(self.family.members))
         # one LED save 215UAH per year
         # on 20m^2 you max need 6 LED
@@ -174,14 +174,14 @@ class CaseUtilityBills(Cases):
 
 
 class CaseFood(Cases):
-    '''
+    """
     Subclass of different cases
-    '''
+    """
 
     def __init__(self, family_instance):
-        '''
+        """
         Initialize all the attributes
-        '''
+        """
         super(CaseFood, self).__init__(family_instance)
         self.name = "Витрати на харчування"
         self.file = 'modules/less_money_cases/case_food.txt'
@@ -191,14 +191,14 @@ class CaseFood(Cases):
 
 
 class CaseHousehold(Cases):
-    '''
+    """
     Subclass of different cases
-    '''
+    """
 
     def __init__(self, family_instance):
-        '''
+        """
         Initialize all the attributes
-        '''
+        """
         super(CaseHousehold, self).__init__(family_instance)
         self.name = "Засоби для домогосподарства"
         self.file = 'modules/less_money_cases/case_household.txt'
@@ -215,14 +215,14 @@ class CaseHousehold(Cases):
 
 
 class CaseUnknown(Cases):
-    '''
+    """
     Subclass of different cases
-    '''
+    """
 
     def __init__(self, family_instance):
-        '''
+        """
         Initialize all the attributes
-        '''
+        """
         super(CaseUnknown, self).__init__(family_instance)
         self.name = "Несподівані витрати"
         self.file = 'modules/less_money_cases/case_unknown.txt'
@@ -232,14 +232,14 @@ class CaseUnknown(Cases):
 
 
 class CaseTrips(Cases):
-    '''
+    """
     Subclass of different cases
-    '''
+    """
 
     def __init__(self, family_instance):
-        '''
+        """
         Initialize all the attributes
-        '''
+        """
         super(CaseTrips, self).__init__(family_instance)
         self.person_instance = self.family
         self.name = "Витрати на подорожі"
@@ -259,15 +259,15 @@ class CaseTrips(Cases):
 # savings for one person
 
 class CaseTransport(Cases):
-    '''
+    """
     Subclass of different cases
     For 1 person
-    '''
+    """
 
     def __init__(self, family_instance):
-        '''
+        """
         Initialize all the attributes
-        '''
+        """
         super(CaseTransport, self).__init__(family_instance)
         self.name = "Транспортні витрати"
         self.file = 'modules/less_money_cases/case_transport.txt'
@@ -277,14 +277,14 @@ class CaseTransport(Cases):
 
 
 class CaseClothes(Cases):
-    '''
+    """
     Subclass of different cases
-    '''
+    """
 
     def __init__(self, family_instance):
-        '''
+        """
         Initialize all the attributes
-        '''
+        """
         super(CaseClothes, self).__init__(family_instance)
         self.name = "Витрати на одяг та взуття"
         self.file = 'modules/less_money_cases/case_clothes.txt'
@@ -310,14 +310,14 @@ class CaseClothes(Cases):
 
 
 class CaseEducation(Cases):
-    '''
+    """
     Subclass of different cases
-    '''
+    """
 
     def __init__(self, family_instance):
-        '''
+        """
         Initialize all the attributes
-        '''
+        """
         super(CaseEducation, self).__init__(family_instance)
         self.name = "Витрати на освіту"
         self.file = 'modules/less_money_cases/case_education.txt'
@@ -332,15 +332,15 @@ class CaseEducation(Cases):
 
 
 class CaseEntertainment(Cases):
-    '''
+    """
     Subclass of different cases
     For person
-    '''
+    """
 
     def __init__(self, family_instance):
-        '''
+        """
         Initialize all the attributes
-        '''
+        """
         super(CaseEntertainment, self).__init__(family_instance)
         self.name = "Витрати на розваги"
         self.file = 'modules/less_money_cases/case_entertainment.txt'

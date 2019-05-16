@@ -1,8 +1,8 @@
-'''
+"""
 
 Main file to run all the process
 
-'''
+"""
 # TODO: import from modules family and utility_bills to cases
 from modules.data_collecting.user_input import family_questions_answers
 from modules.family_outcome_analysis.family_outcome_an import BasicOutgoings
@@ -12,13 +12,13 @@ from modules.less_money_cases.less_money_cases import Cases
 
 
 def use_cases_spend_less_money(too_much_money_spend, fam):
-    '''
+    """
     Function to show user where and how he/she can save money
 
     :param too_much_money_spend: dictionary
     :param fam: Family
     :return: str,
-    '''
+    """
 
     # TODO: sent family income as attribute
 
@@ -33,10 +33,10 @@ def use_cases_spend_less_money(too_much_money_spend, fam):
 
 
 def count_general_savings(family_money_box):
-    '''
+    """
     Return general sum of savings
     :return:float
-    '''
+    """
     general_summary = 0
     for key, val in family_money_box.items():
         if isinstance(val, dict):
@@ -63,10 +63,10 @@ def print_family_general_savings(family_money_box):
 
 
 def main():
-    '''
+    """
     Main function to run all the process
     :return: None
-    '''
+    """
     # TODO: uncomment
     # # Get and print data frm user
     # family = family_questions_answers()
