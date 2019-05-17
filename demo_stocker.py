@@ -3,6 +3,9 @@ from datetime import datetime
 from threading import Timer
 import os
 import pandas as pd
+import re
+
+COMPANIES_FILE = 'docs/nasdaq100list.csv'
 
 
 def get_stock_info():
@@ -38,7 +41,7 @@ def get_stock_info():
         dict_top_differance = {}
         # read top 100 companies from nasdaq
         # file = open('docs/nasdaq100list.csv', 'r')
-        file = open('docs/pal.csv', 'r')
+        file = open(COMPANIES_FILE, 'r')
         for line in file.readlines():
             # get company token
             line = line.strip()
@@ -66,24 +69,41 @@ def get_stock_info():
     for token in top_10_key_token:
         s_general = Stocker(token)
         future_increase_general = s_general.predict_future(365)
-        future_increase_general.to_csv(r'tmp\future_{}.csv'.format(
-            token), header=False, index=False)
+        future_increase_general.to_csv(r'tmp/future_{}.csv'.format(
+            token), header=True, index=False)
 
 
-def draw_plots(future_increase_general):
+def draw_plots(token, future_increase_general):
     """
     Draw plots to show plots in PLotly
     :return: None
     """
-    s_general.show_plots(future_increase_general)
+    s = Stocker(token)
+    s.show_plots(future_increase_general)
 
 
-def each_file_plot(future_increase_general):
+def each_file_plot():
     for future_file in os.listdir('tmp'):
         if 'future' in future_file:
+            future_file = 'tmp/' + future_file
+
             future_increase_general = pd.read_csv(future_file)
-            draw_plots(future_increase_general)
-            # TODO: save and read from file
+            token = re.findall('_\w*.', future_file)[0][1:-1]
+            draw_plots(token, future_increase_general)
+
+
+def get_info_and_clean_old_files():
+    """
+    Delete yesterday information
+    Get infomation from stock (up to date info)
+    :return:None
+    """
+    for future_file in os.listdir('tmp'):
+        if 'future' in future_file:
+            future_file = 'tmp/' + future_file
+            os.unlink(future_file)
+
+    get_stock_info()
 
 
 def main():
@@ -98,16 +118,13 @@ def main():
     delta_t = y - x
     secs = delta_t.seconds + 1
 
-    t = Timer(secs, get_stock_info)
+    t = Timer(secs, get_info_and_clean_old_files)
     t.start()
 
     # after upate save data to file
     get_stock_info()
-    each_file_plot(future_increase_general)
-    # draw plots for saved data
-    # for future_increase_general in lst_data_frames:
-    #     s_general.show_plots(future_increase_general)
-    # return lst_data_frames
+    # read data from csv and save in to DataFrame pd, show plot
+    each_file_plot()
 
 
 if __name__ == '__main__':
