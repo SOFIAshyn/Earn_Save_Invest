@@ -1,3 +1,5 @@
+# -*- coding=utf-8 -*-
+
 import urllib.request
 import json
 
@@ -8,6 +10,10 @@ class BankType:
     """
 
     def __init__(self, cur_incomes):
+        """
+        initialization of the class
+        :param cur_incomes: current incomes of the family
+        """
         self.info = None
         self.conditions = None
         self.cur_incomes = cur_incomes
@@ -17,11 +23,9 @@ class BankType:
         update information from the Internet
         """
         url = 'https://resources.finance.ua/ua/deposit/program?type=nat'
-        #########################################################################
-        # data = urllib.request.urlopen(url).read().decode()
-        # with open('modules/bank/data.json', 'w', encoding='utf-8') as ff:
-        #     print(data, file=ff)
-        #########################################################################
+        data = urllib.request.urlopen(url).read().decode()
+        with open('modules/bank/data.json', 'w', encoding='utf-8') as ff:
+            print(data, file=ff)
         with open('modules/bank/data.json', 'r') as ff:
             data = json.load(ff)
         self.info = data
@@ -79,6 +83,14 @@ class Bank:
     """
 
     def __init__(self, title, link, programs, index, cur_incomes):
+        """
+        initialisation of the Bank class instance
+        :param title: Bank title
+        :param link: link on the Bank
+        :param programs: Bank programs
+        :param index: personal Bank index from finance.ua page
+        :param cur_incomes: current incomes of the family
+        """
         self.title = title
         self.link = link
         self.programs = programs
@@ -108,6 +120,10 @@ class Bank:
                                                                  self.index)
 
     def find_best_program(self):
+        """
+        method to finding the best program for current family
+        :return: the best program
+        """
         maxx = 0
         res = None
         for each in self.programs:
@@ -126,7 +142,6 @@ class Bank:
         for each in self.programs:
             tmp = each.find_best()
             sub = (tmp[3] - tmp[2]) / tmp[2] * 100 - tmp[4]
-            # print(each, tmp, (tmp[3]-tmp[2])/tmp[2]*100)
             self.index += sub + self.coeffs['rates']
         self.index += float(self.rating) * self.coeffs['rating']
         self.index += len(self.programs) * self.coeffs['programs']
@@ -134,10 +149,16 @@ class Bank:
 
 class Program:
     """
-    class for representation Bank programs
+    class for representation Bank deposit programs
     """
-
     def __init__(self, condition, title, link, rates):
+        """
+        initialisation of the class instance
+        :param condition:
+        :param title: program title
+        :param link:
+        :param rates:
+        """
         self.condition = condition
         self.title = title
         self.link = link
@@ -152,6 +173,12 @@ class Program:
     def find_best(self, current_incomes=0, currency=None):
         """
         method for finding best rate for current program
+
+        the program analise the number of propositions of current bank,
+        each program`s profit and customer rating. only programs that are
+        recommended for current family are counted (if current incomes are
+        higher then minimal invest in the bank)
+        
         :param current_incomes: current incomes of the family
         :param currency: current currency
         :return: the best program for the family
