@@ -305,18 +305,30 @@ class Stocker:
         # plt.xlabel('Date')
         # plt.title('Predictions for %s' % self.symbol)
         # plt.show()
+
     def check_month_interval(self, future_increase):
         """
         Check future increase or decrease
-        :param future_increase:
+        how many percents will be added in next month
+        :param future_increase: pandas DataFrame
         :return: float
         """
-        pass
+        # price of company on stock at the begining of month
+        start = future_increase['estimate'].iloc[0]
+        # price of company on stock at the end of month
+        end_month = future_increase['estimate'].iloc[29]
 
-    def show_plots(self, days=30):
+        # percentage of last of month option
+        per_end_month = end_month * 100 / start
+
+        # how many percents will be added in next month
+        increase_per = per_end_month - 100
+
+        return increase_per
+
+    def show_plots(self, future_increase):
         """
         Calculate company and how many may it earn / get
-        :param days: int
         :return: float
         """
         company_middle_plot(future_increase['Date'],
