@@ -10,6 +10,7 @@ from modules.data_comparing.compare_data import CompareBasicReal
 from modules.data_collecting.family import FamilyPercent
 from modules.less_money_cases.less_money_cases import Cases
 from modules.bank import *
+from modules.stocker import stock_result_top_10
 
 
 def use_cases_spend_less_money(too_much_money_spend, fam):
@@ -114,21 +115,28 @@ def main():
           'якщо будете дотримуватись правил збереження коштів та будете '
           'вкладати прибуток у ресурси, які приносять додаткові '
           'кошти.\n\nРекомендуємо Вам переглянути ресурси для '
-          'вкладів:'.format(general_sum))
+          'вкладів:\n'.format(general_sum))
 
     # give data about banks
-    print("Банки: ")
+    print("Рейтинг банківських компаній: ")
     ### інфа поки лише в гривні ###
     b = BankType(general_sum)
     a = b.banks_processing()
     a = sorted(a, key=lambda x: x.index)[::-1][:5]
-    # print(type(a))
+
     for each in a:
         try:
             print(each)
         except TypeError:
             continue
+
     # give data of stock market
+    print("У вашому браузері, ви можете побачити 10 графіків, які показують "
+          "поведінку акцій на Міжнародній Фондовій Біржі. Передбачення акцій "
+          "'TOП 10' компаній складені на рік вперед.\nEarn Save Invest "
+          "рекомендує вам компанії, у які вигідно вкладати кошти протягом "
+          "місяця.\nДані про компанії оновлюються щодня о 13:00")
+    stock_result_top_10()
 
     # give data about hryvna
 
