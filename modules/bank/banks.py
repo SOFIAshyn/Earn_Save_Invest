@@ -52,11 +52,6 @@ class BankType:
     @staticmethod
     def parse_programs(program):
         """
-        method for parsing each program from the banks
-        :param program:
-        :return:
-        """
-        """
         method for parsing programs of banks
         :param program: current program
         :return: list of Program instances
@@ -136,7 +131,6 @@ class Bank:
     def update(self):
         """
         method for updating the info about current bank
-        :return:
         """
         self.programs = [each for each in self.programs if
                          each.find_best(self.current_incomes)]
@@ -152,13 +146,14 @@ class Program:
     """
     class for representation Bank deposit programs
     """
+
     def __init__(self, condition, title, link, rates):
         """
         initialisation of the class instance
         :param condition:
         :param title: program title
-        :param link:
-        :param rates:
+        :param link: link on the program
+        :param rates: list of program`s rates
         """
         self.condition = condition
         self.title = title
