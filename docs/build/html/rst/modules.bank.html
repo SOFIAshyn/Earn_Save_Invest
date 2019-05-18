@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>modules.bank package &#8212; Earn_Save_Invest 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="modules-bank-package">
+<h1>modules.bank package<a class="headerlink" href="#modules-bank-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-modules.bank.banks">
+<span id="modules-bank-banks-module"></span><h2>modules.bank.banks module<a class="headerlink" href="#module-modules.bank.banks" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="modules.bank.banks.Bank">
+<em class="property">class </em><code class="descclassname">modules.bank.banks.</code><code class="descname">Bank</code><span class="sig-paren">(</span><em>title</em>, <em>link</em>, <em>programs</em>, <em>index</em>, <em>cur_incomes</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.bank.banks.Bank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>class for representing Bank instance</p>
+<dl class="method">
+<dt id="modules.bank.banks.Bank.find_best_program">
+<code class="descname">find_best_program</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.bank.banks.Bank.find_best_program" title="Permalink to this definition">¶</a></dt>
+<dd><p>method to finding the best program for current family
+:return: the best program</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.bank.banks.Bank.update">
+<code class="descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.bank.banks.Bank.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>method for updating the info about current bank</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="modules.bank.banks.BankType">
+<em class="property">class </em><code class="descclassname">modules.bank.banks.</code><code class="descname">BankType</code><span class="sig-paren">(</span><em>cur_incomes</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.bank.banks.BankType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for representation bank instance</p>
+<dl class="method">
+<dt id="modules.bank.banks.BankType.banks_processing">
+<code class="descname">banks_processing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.bank.banks.BankType.banks_processing" title="Permalink to this definition">¶</a></dt>
+<dd><p>method for processing the info about the bank</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="modules.bank.banks.BankType.parse_programs">
+<em class="property">static </em><code class="descname">parse_programs</code><span class="sig-paren">(</span><em>program</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.bank.banks.BankType.parse_programs" title="Permalink to this definition">¶</a></dt>
+<dd><p>method for parsing programs of banks
+:param program: current program
+:return: list of Program instances</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.bank.banks.BankType.update_information">
+<code class="descname">update_information</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.bank.banks.BankType.update_information" title="Permalink to this definition">¶</a></dt>
+<dd><p>update information from the Internet</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.bank.banks.BankType.update_instance">
+<code class="descname">update_instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#modules.bank.banks.BankType.update_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>update the Banks: their indexes, titles, programs, etc.
+:return: list of Bank instances</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="modules.bank.banks.Program">
+<em class="property">class </em><code class="descclassname">modules.bank.banks.</code><code class="descname">Program</code><span class="sig-paren">(</span><em>condition</em>, <em>title</em>, <em>link</em>, <em>rates</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.bank.banks.Program" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>class for representation Bank deposit programs</p>
+<dl class="method">
+<dt id="modules.bank.banks.Program.find_best">
+<code class="descname">find_best</code><span class="sig-paren">(</span><em>current_incomes=0</em>, <em>currency=None</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.bank.banks.Program.find_best" title="Permalink to this definition">¶</a></dt>
+<dd><p>method for finding best rate for current program</p>
+<p>the program analise the number of propositions of current bank,
+each program`s profit and customer rating. only programs that are
+recommended for current family are counted (if current incomes are
+higher then minimal invest in the bank)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>current_incomes</strong> – current incomes of the family</p></li>
+<li><p><strong>currency</strong> – current currency</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the best program for the family</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="modules.bank.banks.Program.transform_rates">
+<code class="descname">transform_rates</code><span class="sig-paren">(</span><em>rates</em><span class="sig-paren">)</span><a class="headerlink" href="#modules.bank.banks.Program.transform_rates" title="Permalink to this definition">¶</a></dt>
+<dd><p>method for transforming rates in needed format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>rates</strong> – list of rates</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>sorted list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-modules.bank">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-modules.bank" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Earn_Save_Invest</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Sofia Petryshyn and Morgunenko Mykola.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/rst/modules.bank.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
