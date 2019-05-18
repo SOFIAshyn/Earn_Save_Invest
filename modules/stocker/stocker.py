@@ -9,7 +9,6 @@ import pandas_datareader.data as web
 from modules.plots.main_plot import company_middle_plot
 
 
-# TODO: check if withut () will work
 class Stocker:
     """
     Class for analyzing and (attempting) to predict future prices

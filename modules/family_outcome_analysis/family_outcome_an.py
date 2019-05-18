@@ -1,12 +1,12 @@
 class UtilityBills:
-    '''
+    """
     Class to calculate min outgoings on utility bills for one person
-    '''
+    """
 
     def __init__(self, members_num):
-        '''
+        """
         Initialize all the attributes for one person
-        '''
+        """
         self.members_num = members_num
 
         self.gaz_price = 8.55  # UAH
@@ -25,11 +25,11 @@ class UtilityBills:
         self.all_area = self.person_area * self.members_num + self.fam_area
 
     def calculate_utility_bills(self):
-        '''
+        """
         Calculate min sum of utility_bills for family
 
         :return: float
-        '''
+        """
         # jek offers
         fam_jek_price = self.all_area * self.jek_area_price
 
@@ -48,15 +48,15 @@ class UtilityBills:
 
 
 class BasicOutgoings:
-    '''
+    """
     Class to analise user data/outgoings with optimal values
-    '''
+    """
 
     def __init__(self, members):
-        '''
+        """
         inintialize all the attributes according to standarts
         More than 100% because family can have some fields absolutely empty
-        '''
+        """
         self.members = members
         self.members_num = len(members)
 
@@ -77,21 +77,21 @@ class BasicOutgoings:
             self.members_num).calculate_utility_bills()
 
     def __str__(self):
-        '''
+        """
         Return all info about family
 
         :return: str
-        '''
+        """
         res = '{}:\nВідсоткова база витрат сім\'ї\n'.format(
             self.__class__.__name__)
         for person in self.members:
             res += str(person) + '\n'
-        res += 'місячні витрати на харчування = {};\nмісячні комунальні ' \
-               'витрати = від {}UAH до {};\nмісячні побутові витрати = {' \
-               '};\nмісячні транспортні витрати = {};\nмісячні витрат ' \
-               'на освіту = {};\nмісячні витрати на одяг та взуття = {};' \
-               '\nрічні витрати на подорожі = {};\nмісячні несподівані ' \
-               'витрати = {};\nмісячні витрати на розваги = {};\n'.format(
+        res += 'місячні витрати на харчування = {} %;\nмісячні комунальні ' \
+               'витрати = від {}UAH до {} %;\nмісячні побутові витрати = {' \
+               '} %;\nмісячні транспортні витрати = {} %;\nмісячні витрат ' \
+               'на освіту = {} %;\nмісячні витрати на одяг та взуття = {} %;' \
+               '\nрічні витрати на подорожі = {} %;\nмісячні несподівані ' \
+               'витрати = {} %;\nмісячні витрати на розваги = {} %;\n'.format(
             self.food,
             self.min_utility_bills,
             self.max_utility_bills,

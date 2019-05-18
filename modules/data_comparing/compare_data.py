@@ -3,14 +3,14 @@
 
 
 class CompareBasicReal:
-    '''
+    """
     Class to compare real and basic values
-    '''
+    """
 
     def __init__(self, basic_family_outgoings, real_family_outgoings):
-        '''
+        """
         initialize all the attributes due to this difference
-        '''
+        """
         self.basic_outgoing = basic_family_outgoings
         self.family_percent = real_family_outgoings
 
@@ -30,13 +30,13 @@ class CompareBasicReal:
         self._comparing()
 
     def _comparing(self):
-        '''
+        """
         Find difference between real and basic
         Change self values - if negative that means that family spend too
         much money on this field
 
         :return: None
-        '''
+        """
         self.dif_utility_bills_per = self.family_percent.utility_bills_per - \
                                      self.basic_outgoing.max_utility_bills
         self.dif_food_per = self.family_percent.food_per - \
@@ -75,11 +75,11 @@ class CompareBasicReal:
                                "Витрати на розваги"]
 
     def _check_if_too_much_money_spend(self):
-        '''
+        """
         Check each attribute if it is according to standarts
 
         :return: list
-        '''
+        """
         over_outgoings = [self.dif_utility_bills_per,
                           self.dif_food_per,
                           self.dif_household_per,
@@ -96,12 +96,12 @@ class CompareBasicReal:
         return over_outgoings
 
     def create_advise(self):
-        '''
+        """
         Analise if all outgoings are less than 100%
         Decide where the user cam spend less
 
         :return:
-        '''
+        """
         over_outgoings = self._check_if_too_much_money_spend()
         fam_percentage = sum(self.all_outgoings)
 
@@ -114,12 +114,12 @@ class CompareBasicReal:
             return self.more_100_check()
 
     def less_100_check(self):
-        '''
+        """
         Give pieces of advise about outgoings
         if they are more than in basic rules
 
         :return: tuple(dict, str)
-        '''
+        """
         too_much_money_spend = {}
         res = 'Ваші витрати є оптимальними'
         for i in range(len(self.all_outgoings)):
@@ -147,15 +147,16 @@ class CompareBasicReal:
                   'коштів. Ви можете економити:\n\n'
             for outgo, per in too_much_money_spend.items():
                 res += outgo + ",\tвитрачайте на {} відсотків, " \
-                               "від прибутків сім\'ї, менше\n".format(str(per))
+                               "від прибутків сім\'ї, менше\n".format(str(
+                    round(per, 2)))
         return too_much_money_spend, res
 
     def more_100_check(self):
-        '''
+        """
         Give pieces of advise about outgoings
 
         :return:
-        '''
+        """
         too_much_money_spend, res = self.less_100_check()
         res += "\nЗа дотримання вище зазначеної економії, ваші витрати " \
                "будуть унормовані, проте витрат є забагато.\n" \
@@ -164,11 +165,11 @@ class CompareBasicReal:
         return too_much_money_spend, res
 
     def __str__(self):
-        '''
+        """
         Return all info about family money percentage
 
         :return: str
-        '''
+        """
         res = '{}:\nВідсоткові, порівняні витрати сім\'ї\n'.format(
             self.__class__.__name__)
         for person in self.family_percent.members:

@@ -3,7 +3,6 @@
 Main file to run all the process
 
 """
-# TODO: import from modules family and utility_bills to cases
 from modules.data_collecting.user_input import family_questions_answers
 from modules.family_outcome_analysis.family_outcome_an import BasicOutgoings
 from modules.data_comparing.compare_data import CompareBasicReal
@@ -19,10 +18,8 @@ def use_cases_spend_less_money(too_much_money_spend, fam):
 
     :param too_much_money_spend: dictionary
     :param fam: Family
-    :return: str,
+    :return: str, dict
     """
-
-    # TODO: sent family income as attribute
 
     savings = None
     case = Cases(fam)
@@ -69,57 +66,53 @@ def main():
     Main function to run all the process
     :return: None
     """
-    # TODO: uncomment
-    # # Get and print data frm user
-    # family = family_questions_answers()
+    # Get and print data frm user
+    family = family_questions_answers()
     # print(family)  # Family
-    #
-    # # data analysis - real and basic percentage
-    # basic_family_outgoings = BasicOutgoings(family.members)
-    # print(basic_family_outgoings)  # BasicOutgoings
-    #
-    # real_family_outgoings = FamilyPercent(
-    #     family.get_fam_outdoings_in_percents(), family.members)
-    # print(real_family_outgoings)  # FamilyPercent
-    #
-    # real_basic_difference = CompareBasicReal(basic_family_outgoings,
-    #                                          real_family_outgoings)
-    # too_much_money_spend, res = real_basic_difference.create_advise()
-    # print('fghjk', real_basic_difference)  # CompareBasicReal
-    # # print data about family outgoings - where too much
-    # print('RES =', res)  # okay
-    #
-    # # calculation and giving pieces of advise
-    # # cases to spend less money
-    # family.saved_percentage_to_UAH(real_basic_difference.all_outgoings,
-    #                                real_basic_difference.outgoing_names)
-    #
-    # advise_str, dict_savings = use_cases_spend_less_money(
-    #     too_much_money_spend, family)
-    # # print('advise_str', advise_str)  # okay
-    # # print('dict_savings', dict_savings)  # okay
-    #
-    # # update money_box with savings from dict_saving
-    # family.family_money_box.update(dict_savings)
-    # # print('family_money_box', family.family_money_box)  # okay
-    #
-    # # general sum that can be saved because of our program
-    # general_sum = count_general_savings(family.family_money_box)
-    # print(general_sum)
 
-    # TODO: DELETE
-    general_sum = 100
+    # data analysis - real and basic percentage
+    basic_family_outgoings = BasicOutgoings(family.members)
+    # print(basic_family_outgoings)  # BasicOutgoings
+
+    real_family_outgoings = FamilyPercent(
+        family.get_fam_outdoings_in_percents(), family.members)
+    print()
+    print(real_family_outgoings)  # FamilyPercent
+
+    real_basic_difference = CompareBasicReal(basic_family_outgoings,
+                                             real_family_outgoings)
+    too_much_money_spend, res = real_basic_difference.create_advise()
+    # print(real_basic_difference)  # CompareBasicReal
+    # print data about family outgoings - where too much
+    print(res)  # okay
+
+    # calculation and giving pieces of advise
+    # cases to spend less money
+    family.saved_percentage_to_UAH(real_basic_difference.all_outgoings,
+                                   real_basic_difference.outgoing_names)
+
+    advise_str, dict_savings = use_cases_spend_less_money(
+        too_much_money_spend, family)
+    # print('advise_str', advise_str)  # okay
+    # print('dict_savings', dict_savings)  # okay
+
+    # update money_box with savings from dict_saving
+    family.family_money_box.update(dict_savings)
+    # print('family_money_box', family.family_money_box)  # okay
+
+    # general sum that can be saved because of our program
+    general_sum = count_general_savings(family.family_money_box)
 
     # DO MAGIC WITH SAVED SUM
-    print('Вітаємо!\n{} - це гроші, які ви можете заощадити за місяць часу, '
-          'якщо будете дотримуватись правил збереження коштів та будете '
-          'вкладати прибуток у ресурси, які приносять додаткові '
+    print('Вітаємо!\n{} - це гроші, які ви можете накопичити за місяць часу, '
+          'якщо будете дотримуватись правил збереження та вкладання коштів '
+          '- вкладання прибутку у ресурси, які приносять додаткові '
           'кошти.\n\nРекомендуємо Вам переглянути ресурси для '
           'вкладів:\n'.format(general_sum))
 
     # give data about banks
     print("Рейтинг банківських компаній: ")
-    ### інфа поки лише в гривні ###
+    # for future it will be in EUR, USD, now UAH
     b = BankType(general_sum)
     a = b.banks_processing()
     a = sorted(a, key=lambda x: x.index)[::-1][:5]
@@ -131,14 +124,14 @@ def main():
             continue
 
     # give data of stock market
-    print("У вашому браузері, ви можете побачити 10 графіків, які показують "
+    print("\n\nУ вашому браузері, ви можете побачити 10 графіків, "
+          "які показують "
           "поведінку акцій на Міжнародній Фондовій Біржі. Передбачення акцій "
           "'TOП 10' компаній складені на рік вперед.\nEarn Save Invest "
           "рекомендує вам компанії, у які вигідно вкладати кошти протягом "
           "місяця.\nДані про компанії оновлюються щодня о 13:00")
     stock_result_top_10()
 
-    # give data about hryvna
 
 
 if __name__ == '__main__':

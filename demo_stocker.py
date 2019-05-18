@@ -107,10 +107,10 @@ def get_info_and_clean_old_files():
 
 
 def main():
-    '''
+    """
     Run all the process with all companies
     :return: None
-    '''
+    """
 
     # every day update data at 1 p.m.
     x = datetime.today()

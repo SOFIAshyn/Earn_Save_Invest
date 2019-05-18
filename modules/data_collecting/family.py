@@ -2,9 +2,9 @@ from modules.exceptions.exceptions import IntInvalidInput, FloatInvalidInput
 
 
 class Person:
-    '''
+    """
     Class to collect all the information about user
-    '''
+    """
 
     def __init__(self, i,
                  age=0,
@@ -19,7 +19,7 @@ class Person:
                  out_clothes=0.0,
                  out_education=0.0,
                  out_entertainment=0.0):
-        '''
+        """
         Initialize all the attributes
         :param i: int
         :param name: None
@@ -31,13 +31,13 @@ class Person:
         :param hours_on_work: int
         :param saving: int
         :param out_entertainment: float
-        '''
+        """
         self.number = i + 1
         self.name = name
         self.__age = age
         self.__worked = worked
         # TODO: create list of positions and on data analisys offer
-        #  additional income
+        #  additional income for future
         self.__workplace = workplace  # current
         self.__income = income  # per month
         self.__extra_income = extra_income  # per month
@@ -169,14 +169,17 @@ class Person:
             self.__out_entertainment = None
 
     def _get_person_data(self):
-        '''
+        """
         Get and set data sbout user in correct type
 
         :return: None
-        '''
+        """
         print('Введіть інформацію про члена сім\'ї № {}'.format(self.number))
         while not self.name:
-            self.name = input('Iм\'я: ')
+            try:
+                self.name = input('Iм\'я: ')
+            except UnicodeDecodeError:
+                self.name = 'NoName'
         while not self.age:
             self.age = input('Вік: ')
         while self.worked is None:
@@ -188,11 +191,15 @@ class Person:
                 self.worked = False
             else:
                 self.worked = None
-        # TODO: check income and extra income for a time
+        # TODO: check income and extra income for a time for future
         if self.worked is True:
             while not self.workplace:
-                self.workplace = input(
-                    'Введіть посаду / навчальний статус члена сім\'ї: ')
+                try:
+                    self.workplace = input(
+                        'Введіть посаду / навчальний статус члена сім\'ї: ')
+                except UnicodeDecodeError:
+                    self.workplace = 'NoData'
+
             while not self.income:
                 self.income = input(
                     'Введіть суму, яку стабільно заробляє член '
@@ -220,11 +227,11 @@ class Person:
                 'Введіть суму місячних витрат особи на розваги та спорт: ')
 
     def __str__(self):
-        '''
+        """
         Return information about person
 
         :return: str
-        '''
+        """
         res = '{}{}: вік = {}; працевлаштування = {}; витрати на траспорт = ' \
               '{}; витрати на одяг та взуття = {}; витрати на освіту = {}; ' \
               'витрати на розваги та спорт = {}'.format(
@@ -241,9 +248,9 @@ class Person:
 
 
 class Family:
-    '''
+    """
     Class to collect all family data
-    '''
+    """
 
     def __init__(self,
                  members=[],
@@ -259,7 +266,7 @@ class Family:
                  out_trips=None,
                  out_unknown=None,
                  saving=0):
-        '''
+        """
         Initialize all the attributes
         :param members: list
         :param fam_income: float
@@ -274,7 +281,7 @@ class Family:
         :param out_trips: None
         :param out_unknown: None
         :param saving: int
-        '''
+        """
         self.members = members
         self.__fam_income = fam_income  # per month
         self.__benefits = benefits  # per_month
@@ -419,11 +426,11 @@ class Family:
         self.__saving = val
 
     def _get_family_data(self):
-        '''
+        """
         Get data from user in correct type
 
         :return: None
-        '''
+        """
         self._set_default_family_data()
         # Questions
         while not self.out_food:
@@ -447,22 +454,19 @@ class Family:
             self.out_unknown = input(
                 'Введіть суму місячних несподіваних витрат: ')
 
-        # TODO: get to understand if we need these variables
-
         general_outcome = self.out_utility_bills + self.out_food + \
                           self.out_household + self.out_clothes + \
                           self.out_transport
-        gen_per_year = self.out_trips + self.out_unknown + self.out_education
         if self.fam_income + self.benefits < general_outcome:
             print('Ви маєте проблеми з бюджнтом. Слідкуйте за '
                   'порадами платформи Earn Save Invest')
 
     def _set_default_family_data(self):
-        '''
+        """
         Check each person in family and add all info to family info
 
         :return: None
-        '''
+        """
         for person in self.members:
             if person.income:
                 self.fam_income += person.income
@@ -480,14 +484,13 @@ class Family:
                 self.out_clothes += person.out_clothes
 
     def get_fam_outdoings_in_percents(self):
-        '''
+        """
         Calculate how many money in percentage family spend and for what
         :return: list
-        '''
+        """
         # to deny ZeroDivisionError
         if not self.fam_income:
             self.fam_income = 1
-        # TODO: check why utility bills are uncorrect
         utility_bills_per = round((self.out_utility_bills * 100) / \
                                   self.fam_income, 2)
         food_per = round((self.out_food * 100) / self.fam_income, 2)
@@ -505,22 +508,19 @@ class Family:
                           self.fam_income, 2)
         entertainment_per = round((self.out_entertainment * 100) / \
                                   self.fam_income, 2)
-        # TODO: copy it if you need
-        # all_outgoings = sum(utility_bills_per, food_per, household_per,
-        #                     transport_per, unknown_per, education_per,
-        #                     clothes_per, trips_per)
+
         return [utility_bills_per, food_per, household_per,
                 transport_per, unknown_per, education_per,
                 clothes_per, trips_per, entertainment_per]
 
     def saved_percentage_to_UAH(self, list_with_difference_in_percentage,
                                 list_with_names):
-        '''
+        """
         Calculate how much money we can save in one month
         Change money box
 
         :return: None
-        '''
+        """
         lst = list_with_difference_in_percentage
 
         for i in range(len(lst)):
@@ -529,19 +529,19 @@ class Family:
                 round(persent * self.fam_income / 100, 2)
 
     def save_more_money_from_saved_money(self):
-        '''
+        """
         We hae saved some money and can have some benefits from it
 
         :return:
-        '''
+        """
         pass
 
     def __str__(self):
-        '''
+        """
         Return all info about family
 
         :return: str
-        '''
+        """
         res = '{}:\n'.format(self.__class__.__name__)
         for person in self.members:
             res += str(person) + '\n'
@@ -558,16 +558,16 @@ class Family:
 
 
 class FamilyPercent:
-    '''
+    """
     Class to contain family outgoings in percentage
-    '''
+    """
 
     def __init__(self, all_outgoings, members):
-        '''
+        """
         Initialize all attributes
         :param all_outgoings: list
         :param members: list of Person
-        '''
+        """
         self.members = members
 
         self.utility_bills_per = all_outgoings[0]
@@ -581,21 +581,21 @@ class FamilyPercent:
         self.entertainment_per = all_outgoings[8]
 
     def __str__(self):
-        '''
+        """
         Return all info about family
 
         :return: str
-        '''
+        """
         res = '{}:\nВідсоткові витрати сім\'ї\n'.format(
             self.__class__.__name__)
         for person in self.members:
             res += str(person) + '\n'
-        res += 'місячні витрати на харчування = {};\nмісячні комунальні ' \
-               'витрати = {};\nмісячні побутові витрати = {};\nмісячні ' \
-               'транспортні витрати = {};\nмісячні витрат на освіту = {' \
-               '};\nмісячні витрати на одяг та взуття = {};\nрічні витрати ' \
-               'на подорожі = {};\nмісячні несподівані витрати = {};\n' \
-               'місячні витрати на розваги = {};\n'.format(
+        res += 'місячні витрати на харчування = {} %;\nмісячні комунальні ' \
+               'витрати = {} %;\nмісячні побутові витрати = {} %;\nмісячні ' \
+               'транспортні витрати = {} %;\nмісячні витрат на освіту = {' \
+               '} %;\nмісячні витрати на одяг та взуття = {} %;\nрічні ' \
+               'витрати на подорожі = {} %;\nмісячні несподівані витрати ' \
+               '= {} %;\n місячні витрати на розваги = {} %;\n'.format(
             self.food_per, self.utility_bills_per, self.household_per,
             self.transport_per, self.education_per, self.clothes_per,
             self.trips_per, self.unknown_per, self.entertainment_per)
