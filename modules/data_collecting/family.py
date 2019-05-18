@@ -183,13 +183,16 @@ class Person:
         while not self.age:
             self.age = input('Вік: ')
         while self.worked is None:
-            employed = input('Чи працевлаштований член сім\'ї (Так \ '
-                             'Ні): ')
-            if employed == 'так':
-                self.worked = True
-            elif employed == 'ні':
-                self.worked = False
-            else:
+            try:
+                employed = input('Чи працевлаштований член сім\'ї (Так \ '
+                                 'Ні): ')
+                if employed == 'так':
+                    self.worked = True
+                elif employed == 'ні':
+                    self.worked = False
+                else:
+                    self.worked = None
+            except UnicodeDecodeError:
                 self.worked = None
         # TODO: check income and extra income for a time for future
         if self.worked is True:
