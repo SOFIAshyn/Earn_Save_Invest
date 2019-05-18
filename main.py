@@ -1,3 +1,5 @@
+#!./Earn_venv/bin/python
+
 """
 
 Main file to run all the process

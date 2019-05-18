@@ -1,0 +1,12 @@
+recursive-include build *.*
+recursive-include diagrams **
+recursive-include docs *.*
+recursive-include Earn_venv *.*
+recursive-include modules *.*
+recursive-include tmp *.*
+include demo*.py
+include main.py
+include Pipfile
+include README.md
+include requirements.txt
+

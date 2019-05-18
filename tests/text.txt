@@ -1,2 +1,0 @@
-Program do not need tests now because all data shows in browser or is given by
-user
