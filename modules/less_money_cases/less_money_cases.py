@@ -87,8 +87,7 @@ class Cases:
         CaseHousehold(self.family).get_all_possible_savings()
         CaseUnknown(self.family).get_all_possible_savings()
         CaseTrips(self.family).get_all_possible_savings()
-        print ('dfghjkljhjghfghjgfdfghj')
-        print(self.FAM_SAVINGS)
+        # SAVINGS - dict with data - where we can save money -> how much
         self.SAVINGS['Загальні заощадження сім\'ї'] = self.FAM_SAVINGS
         # here self.family
         for i in range(len(self.family.members)):
@@ -102,8 +101,6 @@ class Cases:
             person_gen_income = person.income + person.extra_income
             self.PER_SAVINGS['Початкові заощадження'] = \
                 round(person_gen_income * person.saving / 100, 2)
-            print('self.PER_SAVINGS')
-            print(self.PER_SAVINGS, person.name)
             self.SAVINGS['Заощадження {}'.format(person.name)] = \
                 self.PER_SAVINGS
             self.PER_SAVINGS = {}
@@ -347,5 +344,3 @@ class CaseEntertainment(Cases):
 
     def get_all_possible_savings(self):
         pass
-
-# CaseUtilityBills()
