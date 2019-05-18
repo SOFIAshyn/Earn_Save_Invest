@@ -108,10 +108,11 @@ class Bank:
 
     def __str__(self):
         if self.best_prog:
-            return '{}, найкраща для вас програма - {}, посилання: \n{}'.format(
+            return '{}, найкраща для вас програма - {}, посилання на банк: ' \
+                   '\n{}'.format(
                     self.title,
                     self.best_prog,
-                    self.best_prog)
+                    self.link)
 
     def __repr__(self):
         return '\nBank: <{}, rating: {},  Program: {}>{}'.format(self.title,
@@ -178,7 +179,7 @@ class Program:
         each program`s profit and customer rating. only programs that are
         recommended for current family are counted (if current incomes are
         higher then minimal invest in the bank)
-        
+
         :param current_incomes: current incomes of the family
         :param currency: current currency
         :return: the best program for the family
