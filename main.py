@@ -17,7 +17,6 @@ from modules.stocker import stock_result_top_10
 def use_cases_spend_less_money(too_much_money_spend, fam):
     """
     Function to show user where and how he/she can save money
-
     :param too_much_money_spend: dictionary
     :param fam: Family
     :return: str, dict
@@ -52,15 +51,26 @@ def count_general_savings(family_money_box):
 
 
 def print_family_general_savings(family_money_box):
+    """
+    Print data for user where and how you have to save money
+    :param family_money_box: dict
+    :return: None
+    """
     res = ''
+    check = 0
+
     for key, val in family_money_box.items():
         if isinstance(val, dict):
             res += key + ':\n'
             for k, v in val.items():
                 res += '\t' + k + ': ' + str(v) + '\n'
         elif val > 0:
+            if check == 0:
+                res += 'Бажано на цю суму менше витрачати грошей на такі ' \
+                       'категорії:\n'
+            check = 1
             res += key + ': ' + str(val) + '\n'
-    return res
+    print(res)
 
 
 def main():
@@ -71,6 +81,12 @@ def main():
     # Get and print data frm user
     family = family_questions_answers()
     # print(family)  # Family
+
+    while family.check_gen_income():
+        print(
+            '\nУ вашої сім\'ї дохід не досягає прожиткового мінімуму. '
+            'Будь ласка, введіть коректну інформацю:\n')
+        family = family_questions_answers()
 
     # data analysis - real and basic percentage
     basic_family_outgoings = BasicOutgoings(family.members)
@@ -95,12 +111,13 @@ def main():
 
     advise_str, dict_savings = use_cases_spend_less_money(
         too_much_money_spend, family)
-    # print('advise_str', advise_str)  # okay
+    print(advise_str)  # okay
     # print('dict_savings', dict_savings)  # okay
 
     # update money_box with savings from dict_saving
     family.family_money_box.update(dict_savings)
     # print('family_money_box', family.family_money_box)  # okay
+    print_family_general_savings(family.family_money_box)
 
     # general sum that can be saved because of our program
     general_sum = count_general_savings(family.family_money_box)
@@ -109,7 +126,9 @@ def main():
     print('Вітаємо!\n{} - це гроші, які ви можете накопичити за місяць часу, '
           'якщо будете дотримуватись правил збереження та вкладання коштів '
           '- вкладання прибутку у ресурси, які приносять додаткові '
-          'кошти.\n\nРекомендуємо Вам переглянути ресурси для '
+          'кошти. *(в суму враховано кошти, які ви заощаджуєте щомісяця, '
+          'а також не витрачені кошти)'
+          '\n\nРекомендуємо Вам переглянути ресурси для '
           'вкладів:\n'.format(general_sum))
 
     # give data about banks
@@ -133,7 +152,6 @@ def main():
           "рекомендує вам компанії, у які вигідно вкладати кошти протягом "
           "місяця.\nДані про компанії оновлюються щодня о 13:00")
     stock_result_top_10()
-
 
 
 if __name__ == '__main__':

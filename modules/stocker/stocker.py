@@ -35,7 +35,6 @@ class Stocker:
             end = dt.datetime.today()
 
             self.df = web.DataReader(self.symbol, 'yahoo', start, end)
-            # print('hereeeee', self.df.head())
 
 
         except Exception as e:

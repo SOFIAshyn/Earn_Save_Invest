@@ -181,7 +181,10 @@ class Person:
             except UnicodeDecodeError:
                 self.name = 'NoName'
         while not self.age:
-            self.age = input('Вік: ')
+            try:
+                self.age = input('Вік: ')
+            except UnicodeDecodeError:
+                self.worked = None
         while self.worked is None:
             try:
                 employed = input('Чи працевлаштований член сім\'ї (Так \ '
@@ -494,23 +497,28 @@ class Family:
         # to deny ZeroDivisionError
         if not self.fam_income:
             self.fam_income = 1
+        if self.benefits:
+            all_income = self.fam_income + self.benefits
+        else:
+            all_income = self.fam_income
+
         utility_bills_per = round((self.out_utility_bills * 100) / \
-                                  self.fam_income, 2)
+                                  all_income, 2)
         food_per = round((self.out_food * 100) / self.fam_income, 2)
         household_per = round((self.out_household * 100) / \
-                              self.fam_income, 2)
+                              all_income, 2)
         transport_per = round((self.out_transport * 100) / \
-                              self.fam_income, 2)
+                              all_income, 2)
         unknown_per = round((self.out_unknown * 100) / \
-                            self.fam_income, 2)
+                            all_income, 2)
         education_per = round((self.out_education * 100) / \
-                              self.fam_income, 2)
+                              all_income, 2)
         clothes_per = round((self.out_clothes * 100) / \
-                            self.fam_income, 2)
+                            all_income, 2)
         trips_per = round((self.out_trips * 100) / \
-                          self.fam_income, 2)
+                          all_income, 2)
         entertainment_per = round((self.out_entertainment * 100) / \
-                                  self.fam_income, 2)
+                                  all_income, 2)
 
         return [utility_bills_per, food_per, household_per,
                 transport_per, unknown_per, education_per,
@@ -524,20 +532,35 @@ class Family:
 
         :return: None
         """
+        if self.benefits:
+            all_income = self.fam_income + self.benefits
+        else:
+            all_income = self.fam_income
+
         lst = list_with_difference_in_percentage
 
         for i in range(len(lst)):
             persent = lst[i]
             self.family_money_box[list_with_names[i] + ' - збереження'] = \
-                round(persent * self.fam_income / 100, 2)
+                round(persent * all_income / 100, 2)
 
-    def save_more_money_from_saved_money(self):
+    def check_gen_income(self):
         """
-        We hae saved some money and can have some benefits from it
+        Check in general income > than min in Ukraine
+        :return: bool
+        """
+        # 2019 - update every year
+        MIN_INCOME = 4173
 
-        :return:
-        """
-        pass
+        gen_income = 0
+        for person in self.members:
+            if person.income:
+                gen_income += person.income
+            if person.extra_income:
+                gen_income += person.extra_income
+        if gen_income > MIN_INCOME:
+            return False
+        return True
 
     def __str__(self):
         """

@@ -147,8 +147,8 @@ class CompareBasicReal:
                   'коштів. Ви можете економити:\n\n'
             for outgo, per in too_much_money_spend.items():
                 res += outgo + ",\tвитрачайте на {} відсотків, " \
-                               "від прибутків сім\'ї, менше\n".format(str(
-                    round(per, 2)))
+                               "від витрат сім\'ї на даний момент, " \
+                               "менше\n".format(str(round(per, 2)))
         return too_much_money_spend, res
 
     def more_100_check(self):

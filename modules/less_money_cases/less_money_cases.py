@@ -98,7 +98,10 @@ class Cases:
             CaseEducation(person).get_all_possible_savings()
             CaseEntertainment(person).get_all_possible_savings()
             # count start savings
-            person_gen_income = person.income + person.extra_income
+            if person.extra_income:
+                person_gen_income = person.income + person.extra_income
+            else:
+                person_gen_income = person.income
             self.PER_SAVINGS['Початкові заощадження'] = \
                 round(person_gen_income * person.saving / 100, 2)
             self.SAVINGS['Заощадження {}'.format(person.name)] = \
@@ -131,9 +134,12 @@ class CaseUtilityBills(Cases):
         # on 20m^2 you max need 6 LED
         area = ut_b.all_area
         LED_num = area / 20 * 6
-        LED_saving = LED_num * 215 / 12
-        # per month
-        self.FAM_SAVINGS['Заощадження на LED лампочках'] = round(LED_saving, 2)
+        LED_saving = LED_num * 51 / 12
+
+        if self.family.out_utility_bills > LED_saving:
+            # per month
+            self.FAM_SAVINGS['Заощадження на LED лампочках'] = round(
+                LED_saving, 2)
 
         # washing machine - less in 2 - 3 times water + 2 - 2,5 kVt
         # scullion - less in 4 - 5 times water, + 1kVt
@@ -155,10 +161,12 @@ class CaseUtilityBills(Cases):
         # more kVt , less m3
         machines_saving = (minus_water_m3 * ut_b.water_price - \
                            plus_kVt * ut_b.el_price) / 12
-        # per month
-        self.FAM_SAVINGS[
-            'Заощадження на машинах хатньої роботи'] = round(
-            machines_saving, 2)
+
+        if self.family.out_utility_bills - LED_saving > machines_saving:
+            # per month
+            self.FAM_SAVINGS[
+                'Заощадження на машинах хатньої роботи'] = round(
+                machines_saving, 2)
 
         # refund of fee from community offer
         PDV = 19.9
@@ -320,12 +328,16 @@ class CaseEducation(Cases):
         self.file = 'modules/less_money_cases/case_education.txt'
 
     def get_all_possible_savings(self):
-        if self.family.out_education > 10000:
-            EDUCATION_AV_SAVING = 50
-            edu_saving = round(self.family.out_education * \
-                               EDUCATION_AV_SAVING / 100, 2)
-            # per month
-            self.PER_SAVINGS['Отримання грантів / пільг'] = edu_saving
+        pass
+
+    # TODO: implement right saving in education in future
+    # def get_all_possible_savings(self):
+    #     if self.family.out_education > 10000:
+    #         EDUCATION_AV_SAVING = 50
+    #         edu_saving = round(self.family.out_education * \
+    #                            EDUCATION_AV_SAVING / 100, 2)
+    #         # per month
+    #         self.PER_SAVINGS['Отримання грантів / пільг'] = edu_saving
 
 
 class CaseEntertainment(Cases):

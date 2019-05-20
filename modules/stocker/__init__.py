@@ -83,6 +83,10 @@ def draw_plots(token, future_increase_general):
 
 
 def each_file_plot():
+    """
+    Go through the dir and read info to show plots
+    :return: None
+    """
     for future_file in os.listdir('tmp'):
         if 'future' in future_file:
             future_file = 'tmp/' + future_file
@@ -113,15 +117,18 @@ def stock_result_top_10():
     '''
 
     # every day update data at 1 p.m.
-    x = datetime.today()
-    y = x.replace(day=x.day + 1, hour=1, minute=0, second=0, microsecond=0)
-    delta_t = y - x
-    secs = delta_t.seconds + 1
 
-    t = Timer(secs, get_info_and_clean_old_files)
-    t.start()
+    # HAVE TO BE RUN IN REAL VERSION
 
-    # after upate save data to file
+    # x = datetime.today()
+    # y = x.replace(day=x.day + 1, hour=1, minute=0, second=0, microsecond=0)
+    # delta_t = y - x
+    # secs = delta_t.seconds + 1
+    #
+    # t = Timer(secs, get_info_and_clean_old_files)
+    # t.start()
+
+    # after update save data to file
     # we don't need to do it because this process runs everyday at 1 p.m.
     # get_stock_info()
 
