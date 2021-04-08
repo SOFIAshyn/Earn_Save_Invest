@@ -22,7 +22,7 @@ cycler==0.10.0
 Cython==0.29.7
 daphne==2.2.4
 decorator==4.3.0
-Django==2.2.10
+Django==2.2.20
 ephem==3.7.6.0
 fbprophet==0.4.post2
 holidays==0.9.10
